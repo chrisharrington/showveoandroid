@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 1 elements(s) to &apos;showveoandroid.dataaccess/src/user&apos;&#x0A;- Original project: &apos;showveoandroid.dataaccess&apos;&#x0A;- Destination element: &apos;showveoandroid.dataaccess/src/user&apos;&#x0A;- Original element: &apos;UserRepository.java&apos;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;user" element1="/src&lt;{UserRepository.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1298152897069" units="1" version="1.0"/>
+</session>

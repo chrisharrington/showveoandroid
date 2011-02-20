@@ -1,0 +1,9 @@
+package showveoandroid.dataaccess;
+
+//
+//	Defines a container for user information.
+//
+public interface IUserRepository {
+
+	
+}

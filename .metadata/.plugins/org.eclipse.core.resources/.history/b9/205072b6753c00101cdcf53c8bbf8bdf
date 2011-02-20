@@ -1,0 +1,43 @@
+package user;
+import dataaccess.IService;
+import dataaccess.user.IUserRepository;
+import domain.User;
+
+public class UserRepository implements IUserRepository {
+
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Data Members
+	
+	//	The remote container for information.
+	IService _service;
+	
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Constructors
+	
+	//
+	//	The default constructor.
+	//	service:						The remote container for information.
+	//
+	public UserRepository(IService service) {
+		if (service == null)
+			throw new IllegalArgumentException("service");
+		
+		_service = service;
+	}
+	
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Public Methods
+	
+	//
+	//	Retrieves a user by email address and password.
+	//	emailAddress:					The user's email address.
+	//	password:						The user's encrypted password.
+	//
+	public User GetUserByEmailAddressAndPassword(String emailAddress, String password) {
+		Object result = _service.Execute(UserQueries.getByEmailAddressAndPassword(emailAddress, password));
+		if (result == null)
+			return null;
+		return (User) result;
+	}
+
+}

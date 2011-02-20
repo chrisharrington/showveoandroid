@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/showveoandroid/showveoandroid.iml" filepath="$PROJECT_DIR$/showveoandroid/showveoandroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/showveoandroid.container/showveoandroid.container.iml" filepath="$PROJECT_DIR$/showveoandroid.container/showveoandroid.container.iml" />
+      <module fileurl="file://$PROJECT_DIR$/showveoandroid.dataaccess/showveoandroid.dataaccess.iml" filepath="$PROJECT_DIR$/showveoandroid.dataaccess/showveoandroid.dataaccess.iml" />
+      <module fileurl="file://$PROJECT_DIR$/showveoandroid.service/showveoandroid.service.iml" filepath="$PROJECT_DIR$/showveoandroid.service/showveoandroid.service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/showveoandroid.test/showveoandroid.test.iml" filepath="$PROJECT_DIR$/showveoandroid.test/showveoandroid.test.iml" />
+    </modules>
+  </component>
+</project>
+

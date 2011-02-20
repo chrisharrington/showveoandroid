@@ -1,0 +1,18 @@
+/*
+ * A class used to load the dependencies for the application.
+ */
+public class Loader {
+	
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Public Methods
+	
+	/*
+	 * Loads all of the required dependencies.
+	 */
+	public static void load() {
+		loadDataAccess();
+	}
+
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Private Methods
+}

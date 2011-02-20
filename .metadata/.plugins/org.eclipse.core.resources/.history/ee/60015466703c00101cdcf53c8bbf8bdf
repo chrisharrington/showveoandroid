@@ -1,0 +1,7 @@
+package showveoandroid.dataaccess;
+
+public interface IService {
+	#region Public Methods
+	
+	#endregion
+}

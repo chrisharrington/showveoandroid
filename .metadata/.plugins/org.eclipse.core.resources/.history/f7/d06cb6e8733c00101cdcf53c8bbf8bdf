@@ -1,0 +1,19 @@
+package dataaccess.user;
+
+import showveoandroid.domain.User;
+
+//
+//	Defines a container for user information.
+//
+public interface IUserRepository {
+
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Public Methods
+	
+	//
+	//	Retrieves a user by email address and password.
+	//	emailAddress:					The user's email address.
+	//	password:						The user's encrypted password.
+	//
+	User GetUserByEmailAddressAndPassword(String emailAddress, String password);
+}

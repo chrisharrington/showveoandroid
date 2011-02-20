@@ -1,0 +1,22 @@
+/*
+ * A class used to resolve dependencies.
+ */
+public class DR {
+
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Data Members
+	
+	//	The underlying type dictionary.
+	
+	
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Public Methods
+	
+	/*
+	 * Registers the given object into the dictionary using the given type.
+	 */
+	public static <T> void Register(T obj) {
+		
+	}
+	
+}

@@ -1,0 +1,19 @@
+import dataaccess.IQuery;
+import dataaccess.IService;
+
+
+public class Service implements IService {
+
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Public Methods
+	
+	/*
+	 * Makes a remote call to the location specified by the given query.
+	 * @param query The query to execute.  Contains locations and data required for execute.
+	 */
+	public <T> T execute(IQuery query) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

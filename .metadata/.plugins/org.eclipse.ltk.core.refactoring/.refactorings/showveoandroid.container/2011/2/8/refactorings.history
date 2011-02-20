@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;Register.java&apos; to &apos;Loader.java&apos;&#x0A;- Original project: &apos;showveoandroid.container&apos;&#x0A;- Original element: &apos;Register.java&apos;&#x0A;- Renamed element: &apos;Loader.java&apos;" description="Rename compilation unit &apos;Register.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;{Register.java" name="Loader.java" references="false" stamp="1298154495223" version="1.0"/>
+</session>

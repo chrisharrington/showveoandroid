@@ -1,0 +1,5 @@
+package showveoandroid.dataaccess;
+
+public interface IService {
+	
+}

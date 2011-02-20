@@ -1,0 +1,24 @@
+import java.util.HashMap;
+
+/*
+ * A class used to resolve dependencies.
+ */
+public class DR {
+
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Data Members
+	
+	//	The underlying type dictionary.
+	private final static HashMap<Class,Object> _dictionary = new HashMap<Class,Object>();
+	
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Public Methods
+	
+	/*
+	 * Registers the given object into the dictionary using the given type.
+	 */
+	public static <T> void Register(T obj) {
+		if (_dictionary)
+	}
+	
+}

@@ -1,0 +1,13 @@
+
+public class test {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Loader.load();
+		IService service = DR.get(IService.class);
+		System.out.println("Done!");
+	}
+
+}

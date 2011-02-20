@@ -1,0 +1,18 @@
+import showveoandroid.dataaccess.IUserRepository;
+import showveoandroid.domain.User;
+
+public class UserRepository implements IUserRepository {
+
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Public Methods
+	
+	//
+	//	Retrieves a user by email address and password.
+	//	emailAddress:					The user's email address.
+	//	password:						The user's encrypted password.
+	//
+	public User GetUserByEmailAddressAndPassword(String emailAddress, String password) {
+		return null;
+	}
+
+}

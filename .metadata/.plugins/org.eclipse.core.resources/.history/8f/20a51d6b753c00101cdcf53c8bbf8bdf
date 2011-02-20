@@ -1,0 +1,9 @@
+package dataaccess;
+
+public interface IService {
+
+	//	Public Methods
+	
+	
+	
+}

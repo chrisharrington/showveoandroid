@@ -1,0 +1,16 @@
+import dataaccess.IQuery;
+import dataaccess.IService;
+
+
+public class Service implements IService {
+
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Public Methods
+	
+	
+	public <T> T execute(IQuery query) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

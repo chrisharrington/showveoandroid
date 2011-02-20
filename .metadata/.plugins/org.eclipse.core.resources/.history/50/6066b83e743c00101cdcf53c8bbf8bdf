@@ -1,0 +1,10 @@
+package dataaccess;
+
+//
+//	Defines a query used to describe the retrieval of data.
+//
+public interface IQuery {
+
+	
+	
+}
