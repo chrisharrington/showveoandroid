@@ -1,8 +1,8 @@
 {
-	"_id": 1,
-	"_firstName": "Chris",
-	"_lastName": "Harrington",
-	"_identity": "areallylongidentity",
-	"_password": "",
-	"_emailAddress": "chrisharrington99@gmail.com"
+	"id": 1,
+	"firstName": "Chris",
+	"lastName": "Harrington",
+	"identity": "areallylongidentity",
+	"password": "",
+	"emailAddress": "chrisharrington99@gmail.com"
 }

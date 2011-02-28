@@ -1,8 +1,9 @@
 package dataaccess;
 
-//
-//	Defines a query used to describe the retrieval of data.
-//
+/**
+ * Defines a query used to describe the retrieval of data.
+ * @param <T> The type of data in the retrieved data object.
+ */
 public interface IQuery<T> {
 
 	//----------------------------------------------------------------------------------------------------------------------------------

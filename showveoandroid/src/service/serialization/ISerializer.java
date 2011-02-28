@@ -1,5 +1,7 @@
 package service.serialization;
 
+import java.util.List;
+
 /**
  * Defines a JSON serializer.
  */
@@ -23,4 +25,13 @@ public interface ISerializer {
 	 * @return The generated object.
 	 */
 	<T> T deserialize(String string, Class<T> type);
+
+	/**
+	 * Deserializes a string into a list of objects.
+	 * @param string The string to deserialize.
+	 * @param type The type of the object.
+	 * @param <T> The type of the object the string should be deserialized into.
+	 * @return The generated list.
+	 */
+	<T> List<T> deserializeList(String string, Class<T> type);
 }

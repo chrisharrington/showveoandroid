@@ -26,16 +26,16 @@ public class UserDeserializer implements JsonDeserializer<User> {
 
 		User user = new User();
 
-		element = object.get("_firstName");
+		element = object.get("firstName");
 		user.setFirsTName(element == null ? "" : element.getAsString());
 
-		element = object.get("_lastName");
+		element = object.get("lastName");
 		user.setLastName(element == null ? "" : element.getAsString());
 
-		element = object.get("_identity");
+		element = object.get("identity");
 		user.setIdentity(element == null ? "" : element.getAsString());
 
-		element = object.get("_emailAddress");
+		element = object.get("emailAddress");
 		user.setEmailAddress(element == null ? "" : element.getAsString());
 
 		return user;

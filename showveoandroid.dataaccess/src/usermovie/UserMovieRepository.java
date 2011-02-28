@@ -1,0 +1,49 @@
+package usermovie;
+
+import dataaccess.IService;
+import dataaccess.usermovie.IUserMovieRepository;
+import domain.User;
+import domain.UserMovie;
+
+import java.util.List;
+
+/**
+ * A container for user-movie information.
+ */
+public class UserMovieRepository implements IUserMovieRepository {
+
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Data Members
+
+	//	A container for remote data.
+	private IService _service;
+
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Constructors
+
+	/**
+	 * The default constructor.
+	 * @param service A container for remote data.
+	 */
+	public UserMovieRepository(IService service) {
+
+		if (service == null)
+			throw new IllegalArgumentException("service");
+
+		_service = service;
+	}
+
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Public Methods
+
+	/**
+	 * Retrieves a collection of user-movie information objects by user.
+	 *
+	 * @param user The user associated with the user-movie information objects.
+	 * @return The retrieved collection of user-movie information objects.
+	 */
+	public List<UserMovie> getRecentByUser(User user) {
+		return _service.executeList(UserMovieQueries.getAllByUser(user));
+	}
+
+}

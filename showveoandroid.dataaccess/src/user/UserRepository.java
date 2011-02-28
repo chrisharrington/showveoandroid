@@ -28,11 +28,12 @@ public class UserRepository implements IUserRepository {
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
 	
-	//
-	//	Retrieves a user by email address and password.
-	//	emailAddress:					The user's email address.
-	//	password:						The user's encrypted password.
-	//
+	/**
+	 * Retrieves a user by email address and password.
+	 * @param emailAddress The user's email address.
+	 * @param password The user's password.
+	 * @return The retrieved user object.
+	 */
 	public User getByEmailAddressAndPassword(String emailAddress, String password) {
 		return _service.execute(UserQueries.getByEmailAddressAndPassword(emailAddress, password));
 	}
