@@ -4,7 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/showveoandroid/showveoandroid.iml" filepath="$PROJECT_DIR$/showveoandroid/showveoandroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/showveoandroid.container/showveoandroid.container.iml" filepath="$PROJECT_DIR$/showveoandroid.container/showveoandroid.container.iml" />
+      <module fileurl="file://$PROJECT_DIR$/showveoandroid.controller/showveoandroid.controller.iml" filepath="$PROJECT_DIR$/showveoandroid.controller/showveoandroid.controller.iml" />
       <module fileurl="file://$PROJECT_DIR$/showveoandroid.dataaccess/showveoandroid.dataaccess.iml" filepath="$PROJECT_DIR$/showveoandroid.dataaccess/showveoandroid.dataaccess.iml" />
+      <module fileurl="file://$PROJECT_DIR$/showveoandroid.model/showveoandroid.model.iml" filepath="$PROJECT_DIR$/showveoandroid.model/showveoandroid.model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/showveoandroid.phoneview/showveoandroid.phoneview.iml" filepath="$PROJECT_DIR$/showveoandroid.phoneview/showveoandroid.phoneview.iml" />
       <module fileurl="file://$PROJECT_DIR$/showveoandroid.service/showveoandroid.service.iml" filepath="$PROJECT_DIR$/showveoandroid.service/showveoandroid.service.iml" />
       <module fileurl="file://$PROJECT_DIR$/showveoandroid.test/showveoandroid.test.iml" filepath="$PROJECT_DIR$/showveoandroid.test/showveoandroid.test.iml" />
     </modules>
