@@ -1,10 +1,16 @@
-import base.Service;
+package base;
+
 import container.DR;
+import container.ILoader;
+import controller.IMainController;
 import dataaccess.IService;
 import dataaccess.genre.IGenreRepository;
 import dataaccess.user.IUserRepository;
 import dataaccess.usermovie.IUserMovieRepository;
 import genre.GenreRepository;
+import main.MainController;
+import main.MainModel;
+import model.IMainModel;
 import security.Cryptographer;
 import serialization.DateParser;
 import serialization.Serializer;
@@ -19,7 +25,7 @@ import usermovie.UserMovieRepository;
 /*
  * A class used to load the dependencies for the application.
  */
-public class Loader {
+public class Loader implements ILoader {
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Data Members
@@ -33,9 +39,10 @@ public class Loader {
 	/*
 	 * Loads all of the required dependencies.
 	 */
-	public static void load() {
+	public void load() {
 		loadService();
 		loadDataAccess();
+		loadUI();
 	}
 
 	//----------------------------------------------------------------------------------------------------------------------------------
@@ -63,6 +70,14 @@ public class Loader {
 		DR.register(IUserRepository.class, new UserRepository(service));
 		DR.register(IGenreRepository.class, new GenreRepository(service));
 		DR.register(IUserMovieRepository.class, new UserMovieRepository(service));
+	}
+
+	/**
+	 * Loads the models, views and controllers required for the UI to operate.
+	 */
+	private static void loadUI() {
+		DR.register(IMainModel.class, new MainModel());
+		DR.register(IMainController.class, new MainController(DR.get(IMainModel.class)));
 	}
 
 }

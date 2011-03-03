@@ -3,9 +3,8 @@
       package="com.showveo.android"
       android:versionCode="1"
       android:versionName="1.0">
-    <application android:label="showveoandroid.phoneview" android:icon="@drawable/icon">
-        <activity android:name="Showveo"
-                  android:label="@string/app_name">
+    <application android:label="showveoandroid.phoneview" android:icon="@drawable/icon" android:name=".ShowveoApplication">
+        <activity android:name=".main.Showveo" android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

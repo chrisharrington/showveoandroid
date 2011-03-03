@@ -11,6 +11,8 @@
     <orderEntry type="module" module-name="showveoandroid" exported="" />
     <orderEntry type="module" module-name="showveoandroid.dataaccess" exported="" />
     <orderEntry type="module" module-name="showveoandroid.service" />
+    <orderEntry type="module" module-name="showveoandroid.model" />
+    <orderEntry type="module" module-name="showveoandroid.controller" />
   </component>
 </module>
 

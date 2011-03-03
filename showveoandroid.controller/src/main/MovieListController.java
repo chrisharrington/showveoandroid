@@ -1,3 +1,5 @@
+package main;
+
 import controller.IMovieListController;
 import model.IMovieListModel;
 import service.event.IEventHandler;

@@ -1,11 +1,16 @@
-package controller;
+package container;
 
 /**
- * Defines a controller for the movie list view.
+ * Defines the application loader.
  */
-public interface IMovieListController {
+public interface ILoader {
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
+
+	/**
+	 * Loads the application.
+	 */
+	void load();
 
 }

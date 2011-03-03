@@ -1,3 +1,5 @@
+package main;
+
 import dataaccess.usermovie.IUserMovieRepository;
 import model.IMovieListModel;
 import view.IMovieListView;
