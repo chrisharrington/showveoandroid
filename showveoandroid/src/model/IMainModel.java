@@ -1,6 +1,6 @@
 package model;
 
-import view.IMainView;
+import view.main.IMainView;
 
 /**
  * Defines a model for the main page.

@@ -1,6 +1,6 @@
 package controller;
 
-import view.IMainView;
+import view.main.IMainView;
 
 /**
  * Defines a controller for the main page.

@@ -1,8 +1,9 @@
 package main;
 
 import model.IMainModel;
-import view.IMainMenuItem;
-import view.IMainView;
+import view.main.IMainMenuItem;
+import view.main.IMainView;
+import view.main.MainMenuType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +42,8 @@ public class MainModel implements IMainModel {
 			throw new NullPointerException("The view has not yet been set.");
 
 		List<IMainMenuItem> items = new ArrayList<IMainMenuItem>();
-		items.add(new MainMenuItem("Movies", "Displays a list of movies available for viewing."));
+		items.add(new MainMenuItem("Movies", "Displays a list of movies available for viewing.", MainMenuType.Movies));
+		items.add(new MainMenuItem("TV", "Shows a list of available TV shows to watch.", MainMenuType.TV));
 		_view.setMenuEntries(items);
 	}
 }

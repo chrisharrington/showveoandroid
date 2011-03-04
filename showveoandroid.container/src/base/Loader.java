@@ -3,6 +3,7 @@ package base;
 import container.DR;
 import container.ILoader;
 import controller.IMainController;
+import controller.IMoviesController;
 import dataaccess.IService;
 import dataaccess.genre.IGenreRepository;
 import dataaccess.user.IUserRepository;
@@ -10,7 +11,10 @@ import dataaccess.usermovie.IUserMovieRepository;
 import genre.GenreRepository;
 import main.MainController;
 import main.MainModel;
+import main.MoviesController;
 import model.IMainModel;
+import model.IMoviesModel;
+import movies.MoviesModel;
 import security.Cryptographer;
 import serialization.DateParser;
 import serialization.Serializer;
@@ -78,6 +82,9 @@ public class Loader implements ILoader {
 	private static void loadUI() {
 		DR.register(IMainModel.class, new MainModel());
 		DR.register(IMainController.class, new MainController(DR.get(IMainModel.class)));
+
+		DR.register(IMoviesModel.class, new MoviesModel(DR.get(IUserMovieRepository.class)));
+		DR.register(IMoviesController.class, new MoviesController(DR.get(IMoviesModel.class)));
 	}
 
 }

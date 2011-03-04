@@ -2,8 +2,9 @@ package main;
 
 import controller.IMainController;
 import model.IMainModel;
-import service.event.IEventHandler;
-import view.IMainView;
+import view.ActivityType;
+import view.main.IMainView;
+import view.main.MainMenuType;
 
 /**
  * The controller for the main page.
@@ -30,6 +31,7 @@ public class MainController implements IMainController {
 		if (model == null)
 			throw new IllegalArgumentException("model");
 
+
 		_model = model;
 	}
 
@@ -47,24 +49,36 @@ public class MainController implements IMainController {
 		_view = view;
 		_model.registerView(view);
 
-		view.onLoad(new LoadMenuEntries());
+		loadHandlers();
 	}
 
 	//----------------------------------------------------------------------------------------------------------------------------------
-	//	LoadMenuEntries Event Handler
+	//	Private Methods
 
 	/**
-	 * An event handler used to load the menu entries on the view.
+	 * Loads the event handlers.
 	 */
-	private class LoadMenuEntries implements IEventHandler {
+	private void loadHandlers() {
+		_view.onLoadHandler(new IMainView.onLoad() {
+			public <T> void run(T data) {
+				_model.loadMenuEntries();
+			}
+		});
 
-		/**
-		 * Runs the event handler.
-		 */
-		public void run() {
-			_model.loadMenuEntries();
-		}
+		_view.onMenuItemSelectedHandler(new IMainView.onMenuItemSelected() {
+			public <T> void run(T data) {
+				if (data == null || !(data instanceof MainMenuType))
+					throw new IllegalArgumentException("data");
 
+				switch ((MainMenuType) data)  {
+					case Movies:
+						_view.switchActivity(ActivityType.Movies);
+						break;
+					case TV:
+						break;
+				}
+			}
+		});
 	}
 
 }

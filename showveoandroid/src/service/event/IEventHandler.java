@@ -10,7 +10,8 @@ public interface IEventHandler {
 
 	/**
 	 * Runs the event handler.
+	 * @param data Any event data.
 	 */
-	void run();
+	<T>void run(T data);
 
 }

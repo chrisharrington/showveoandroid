@@ -8,6 +8,7 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
+    <orderEntry type="library" name="Android 2.2 Platform" level="application" />
   </component>
 </module>
 

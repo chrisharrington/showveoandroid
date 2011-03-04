@@ -5,34 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4962133-2d8b-476c-9123-7789e62aa5b3" name="Default" comment="I've begun the MVC framework, setting up interfaces for the view, model and the controller for the movie list page.  I've also setup concrete classes for the model and the controller for the same page, but have yet to tackle the view.  So far so good.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.controller/src/main/MainController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.model/src/main/MainMenuItem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.model/src/main/MainModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/mainlistview.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/movielistview.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/movies.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/MovieListView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/ShowveoApplication.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/MainMenuItemArrayAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/Showveo.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid/src/container/ILoader.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid/src/controller/IMainController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid/src/model/IMainModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid/src/view/IMainMenuItem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid/src/view/IMainView.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/Showveo.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/showveoandroid.container/src/Loader.java" afterPath="$PROJECT_DIR$/showveoandroid.container/src/base/Loader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/showveoandroid.controller/src/MovieListController.java" afterPath="$PROJECT_DIR$/showveoandroid.controller/src/main/MovieListController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/showveoandroid.model/src/MovieListModel.java" afterPath="$PROJECT_DIR$/showveoandroid.model/src/main/MovieListModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.model/src/base/BaseModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/BaseView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid/src/controller/IMoviesController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid/src/model/IBaseModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid/src/model/IMoviesModel.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid/src/view/ActivityType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid/src/view/IBaseView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid/src/view/main/MainMenuType.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/showveoandroid/src/controller/IMovieListController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/showveoandroid/src/model/IMovieListModel.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/showveoandroid.controller/src/main/MovieListController.java" afterPath="$PROJECT_DIR$/showveoandroid.controller/src/main/MoviesController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/showveoandroid.model/src/main/MovieListModel.java" afterPath="$PROJECT_DIR$/showveoandroid.model/src/movies/MoviesModel.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/MovieListView.java" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesView.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/Showveo.java" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/MainView.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/showveoandroid/src/view/IMainMenuItem.java" afterPath="$PROJECT_DIR$/showveoandroid/src/view/main/IMainMenuItem.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/showveoandroid/src/view/IMainView.java" afterPath="$PROJECT_DIR$/showveoandroid/src/view/main/IMainView.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/showveoandroid/src/view/IMovieListView.java" afterPath="$PROJECT_DIR$/showveoandroid/src/view/movies/IMoviesView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.container/showveoandroid.container.iml" afterPath="$PROJECT_DIR$/showveoandroid.container/showveoandroid.container.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.container/src/base/Loader.java" afterPath="$PROJECT_DIR$/showveoandroid.container/src/base/Loader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.controller/src/main/MainController.java" afterPath="$PROJECT_DIR$/showveoandroid.controller/src/main/MainController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.dataaccess/src/usermovie/UserMovieRepository.java" afterPath="$PROJECT_DIR$/showveoandroid.dataaccess/src/usermovie/UserMovieRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.model/src/main/MainMenuItem.java" afterPath="$PROJECT_DIR$/showveoandroid.model/src/main/MainMenuItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.model/src/main/MainModel.java" afterPath="$PROJECT_DIR$/showveoandroid.model/src/main/MainModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/AndroidManifest.xml" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/gen/com/showveo/android/R.java" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/gen/com/showveo/android/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/main.xml" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/res/values/strings.xml" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/showveoandroid.phoneview.iml" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/showveoandroid.phoneview.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.test/src/test.java" afterPath="$PROJECT_DIR$/showveoandroid.test/src/test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid/src/controller/IMovieListController.java" afterPath="$PROJECT_DIR$/showveoandroid/src/controller/IMovieListController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/mainlistview.xml" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/mainlistview.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/movies.xml" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/movies.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/MainMenuItemArrayAdapter.java" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/MainMenuItemArrayAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid/showveoandroid.iml" afterPath="$PROJECT_DIR$/showveoandroid/showveoandroid.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid/src/controller/IMainController.java" afterPath="$PROJECT_DIR$/showveoandroid/src/controller/IMainController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid/src/dataaccess/usermovie/IUserMovieRepository.java" afterPath="$PROJECT_DIR$/showveoandroid/src/dataaccess/usermovie/IUserMovieRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid/src/model/IMainModel.java" afterPath="$PROJECT_DIR$/showveoandroid/src/model/IMainModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid/src/service/event/IEventHandler.java" afterPath="$PROJECT_DIR$/showveoandroid/src/service/event/IEventHandler.java" />
     </list>
     <ignored path="showveoandroid.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -107,7 +111,92 @@
     <favorites_list name="showveoandroid" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="MainView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/MainView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="82" selection-start="1185" selection-end="1185" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseView.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/BaseView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="20" selection-start="762" selection-end="762" vertical-scroll-proportion="0.43032786">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IBaseView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/showveoandroid/src/view/IBaseView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="19" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/showveoandroid.controller/src/main/MainController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="59" column="27" selection-start="1537" selection-end="1537" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Loader.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/showveoandroid.container/src/base/Loader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="85" column="89" selection-start="2850" selection-end="2850" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MoviesModel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/showveoandroid.model/src/movies/MoviesModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="11" selection-start="648" selection-end="648" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActivityType.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/showveoandroid/src/view/ActivityType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="0" selection-start="15" selection-end="15" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MoviesView.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="26" selection-start="350" selection-end="350" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -121,21 +210,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/main.xml" />
-        <option value="$PROJECT_DIR$/showveoandroid/src/controller/IMovieListController.java" />
-        <option value="$PROJECT_DIR$/showveoandroid/src/view/IMainMenuItem.java" />
-        <option value="$PROJECT_DIR$/showveoandroid/src/view/IMainView.java" />
-        <option value="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/MainMenuItemArrayAdapter.java" />
-        <option value="$PROJECT_DIR$/showveoandroid/src/container/ILoader.java" />
-        <option value="$PROJECT_DIR$/showveoandroid.container/src/Loader.java" />
-        <option value="$PROJECT_DIR$/showveoandroid.test/src/test.java" />
-        <option value="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/ShowveoApplication.java" />
-        <option value="$PROJECT_DIR$/showveoandroid.phoneview/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/showveoandroid/src/model/IMainModel.java" />
-        <option value="$PROJECT_DIR$/showveoandroid.model/src/MainModel.java" />
-        <option value="$PROJECT_DIR$/showveoandroid.controller/src/MainController.java" />
-        <option value="$PROJECT_DIR$/showveoandroid/src/controller/IMainController.java" />
-        <option value="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/Showveo.java" />
+        <option value="$PROJECT_DIR$/showveoandroid/src/view/switcher/Activities.java" />
+        <option value="$PROJECT_DIR$/showveoandroid/src/view/switcher/IActivitySwitcher.java" />
+        <option value="$PROJECT_DIR$/showveoandroid/src/view/switcher/IActivityChanger.java" />
+        <option value="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/changer/ActivityChanger.java" />
+        <option value="$PROJECT_DIR$/showveoandroid/src/view/changer/IActivityChanger.java" />
+        <option value="$PROJECT_DIR$/showveoandroid/src/view/main/IMainView.java" />
+        <option value="$PROJECT_DIR$/showveoandroid/src/view/movies/IMoviesView.java" />
+        <option value="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/MainView.java" />
+        <option value="$PROJECT_DIR$/showveoandroid/src/view/IBaseView.java" />
+        <option value="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/BaseView.java" />
+        <option value="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/ActivityType.java" />
+        <option value="$PROJECT_DIR$/showveoandroid/src/view/ActivityType.java" />
+        <option value="$PROJECT_DIR$/showveoandroid.controller/src/main/MainController.java" />
+        <option value="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesView.java" />
+        <option value="$PROJECT_DIR$/showveoandroid.model/src/movies/MoviesModel.java" />
         <option value="$PROJECT_DIR$/showveoandroid.container/src/base/Loader.java" />
       </list>
     </option>
@@ -384,15 +473,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="showveoandroid" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="showveoandroid.phoneview" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="android" />
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
+              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -420,7 +519,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
+              <option name="myItemId" value="movies" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -430,17 +529,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="showveoandroid.controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="showveoandroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="showveoandroid.controller" />
+              <option name="myItemId" value="showveoandroid.model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -458,21 +547,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="showveoandroid.container" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="showveoandroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="showveoandroid.container" />
+              <option name="myItemId" value="showveoandroid.model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -533,24 +616,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="showveoandroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="showveoandroid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="container" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -841,7 +906,7 @@
     </configuration>
     <configuration default="false" name="showveoandroid.phoneview" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="showveoandroid.phoneview" />
-      <option name="ACTIVITY_CLASS" value="com.showveo.android.main.Showveo" />
+      <option name="ACTIVITY_CLASS" value="com.showveo.android.main.MainView" />
       <option name="MODE" value="specific_activity" />
       <option name="DEPLOY" value="true" />
       <option name="CHOOSE_DEVICE_MANUALLY" value="false" />
@@ -917,21 +982,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1920" height="1152" extended-state="0" />
-    <editor active="false" />
+    <frame x="-1" y="24" width="1922" height="1153" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33000997" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33000997" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868525" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39780658" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39741036" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901296" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32801595" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32768923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901296" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24986623" sideWeight="0.66999" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959914" sideWeight="0.60258967" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -979,126 +1044,123 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/showveoandroid/src/view/IMainView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="4" selection-start="152" selection-end="303" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/MainMenuItemArrayAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="149" selection-start="1287" selection-end="1287" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/showveoandroid.container/.project">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/showveoandroid.container/.classpath">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/showveoandroid.test/src/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="8" selection-start="74" selection-end="74" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/showveoandroid.phoneview/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="47" selection-start="487" selection-end="487" vertical-scroll-proportion="0.20833333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/showveoandroid/src/model/IMainModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="40" selection-start="352" selection-end="352" vertical-scroll-proportion="0.36458334">
+        <state line="7" column="17" selection-start="108" selection-end="108" vertical-scroll-proportion="0.107581966">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/showveoandroid/src/controller/IMainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="9" selection-start="385" selection-end="385" vertical-scroll-proportion="0.25104603">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/showveoandroid/src/container/ILoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="29" selection-start="276" selection-end="276" vertical-scroll-proportion="0.28645834">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/showveoandroid.container/src/base/Loader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="43" selection-start="1817" selection-end="1817" vertical-scroll-proportion="0.8854167">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/ShowveoApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="511" selection-end="511" vertical-scroll-proportion="0.5989583">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/showveoandroid/src/container/DR.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="1146" selection-end="1146" vertical-scroll-proportion="0.7395833">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/local/apps/android-sdk-linux_x86/platforms/android-8/android.jar!/android/app/Activity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="244" column="16" selection-start="11889" selection-end="11889" vertical-scroll-proportion="0.34874758">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/showveoandroid.controller/src/main/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="0" selection-start="1701" selection-end="1701" vertical-scroll-proportion="0.6875">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/showveoandroid.model/src/main/MainModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="0" selection-start="1174" selection-end="1174" vertical-scroll-proportion="0.765625">
+        <state line="13" column="42" selection-start="266" selection-end="266" vertical-scroll-proportion="0.19979508">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/Showveo.java">
+    <entry file="file://$PROJECT_DIR$/showveoandroid/src/view/main/IMainView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="65" selection-start="1510" selection-end="1510" vertical-scroll-proportion="0.47916666">
+        <state line="10" column="44" selection-start="193" selection-end="193" vertical-scroll-proportion="0.15368852">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/showveoandroid/src/model/IBaseModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="17" selection-start="66" selection-end="66" vertical-scroll-proportion="0.07684426">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/showveoandroid/src/view/movies/IMoviesView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="46" selection-start="228" selection-end="228" vertical-scroll-proportion="0.16905738">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/showveoandroid/src/model/IMoviesModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="17" selection-start="123" selection-end="123" vertical-scroll-proportion="0.107581966">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/showveoandroid.model/src/base/BaseModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="22" selection-start="113" selection-end="113" vertical-scroll-proportion="0.107581966">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/MainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="82" selection-start="1185" selection-end="1185" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/showveoandroid/src/view/IBaseView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="19" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/showveoandroid/src/view/ActivityType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="15" selection-end="15" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="26" selection-start="350" selection-end="350" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/showveoandroid.controller/src/main/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="27" selection-start="1537" selection-end="1537" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/showveoandroid.model/src/movies/MoviesModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="11" selection-start="648" selection-end="648" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/showveoandroid.container/src/base/Loader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="89" selection-start="2850" selection-end="2850" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/BaseView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="20" selection-start="762" selection-end="762" vertical-scroll-proportion="0.43032786">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
