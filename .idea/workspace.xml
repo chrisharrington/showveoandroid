@@ -5,42 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f4962133-2d8b-476c-9123-7789e62aa5b3" name="Default" comment="I've begun the MVC framework, setting up interfaces for the view, model and the controller for the movie list page.  I've also setup concrete classes for the model and the controller for the same page, but have yet to tackle the view.  So far so good.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/test.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/BaseTabView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/FirstTab.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/SecondTab.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/TestView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesArrayAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesTab.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid.service/src/threading/MonitoredThread.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid/src/container/IDataStore.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid/src/domain/UserMovieCollection.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid/src/service/threading/IThread.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/showveoandroid/src/service/threading/IThreadFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/showveoandroid.controller/src/main/MoviesController.java" afterPath="$PROJECT_DIR$/showveoandroid.controller/src/movies/MoviesController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.container/src/base/Loader.java" afterPath="$PROJECT_DIR$/showveoandroid.container/src/base/Loader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.dataaccess/src/base/Service.java" afterPath="$PROJECT_DIR$/showveoandroid.dataaccess/src/base/Service.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.dataaccess/src/usermovie/UserMovieQueries.java" afterPath="$PROJECT_DIR$/showveoandroid.dataaccess/src/usermovie/UserMovieQueries.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.dataaccess/src/usermovie/UserMovieRepository.java" afterPath="$PROJECT_DIR$/showveoandroid.dataaccess/src/usermovie/UserMovieRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.model/showveoandroid.model.iml" afterPath="$PROJECT_DIR$/showveoandroid.model/showveoandroid.model.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.model/src/movies/MoviesModel.java" afterPath="$PROJECT_DIR$/showveoandroid.model/src/movies/MoviesModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/AndroidManifest.xml" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/gen/com/showveo/android/R.java" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/gen/com/showveo/android/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/main.xml" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/mainlistview.xml" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/mainlistview.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/movielistview.xml" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/movielistview.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/movies.xml" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/movies.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/BaseView.java" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/BaseView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/ShowveoApplication.java" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/ShowveoApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/MainMenuItemArrayAdapter.java" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/MainMenuItemArrayAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/MainView.java" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/MainView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesView.java" afterPath="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid.test/src/test.java" afterPath="$PROJECT_DIR$/showveoandroid.test/src/test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid/src/container/ILoader.java" afterPath="$PROJECT_DIR$/showveoandroid/src/container/ILoader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid/src/dataaccess/usermovie/IUserMovieRepository.java" afterPath="$PROJECT_DIR$/showveoandroid/src/dataaccess/usermovie/IUserMovieRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid/src/view/IBaseView.java" afterPath="$PROJECT_DIR$/showveoandroid/src/view/IBaseView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid/src/view/movies/IMoviesView.java" afterPath="$PROJECT_DIR$/showveoandroid/src/view/movies/IMoviesView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showveoandroid/src/domain/UserMovieCollection.java" afterPath="$PROJECT_DIR$/showveoandroid/src/domain/UserMovieCollection.java" />
     </list>
     <ignored path="showveoandroid.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -116,10 +83,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MoviesModel.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MoviesModel.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/showveoandroid.model/src/movies/MoviesModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="67" selection-start="1866" selection-end="1866" vertical-scroll-proportion="0.5389344">
+            <state line="87" column="63" selection-start="2917" selection-end="2917" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MoviesView.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="72" column="24" selection-start="2014" selection-end="2014" vertical-scroll-proportion="0.3545082">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserMovieCollection.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/showveoandroid/src/domain/UserMovieCollection.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="34" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -139,7 +124,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/movies/ParecelableUserMoviesCollection.java" />
         <option value="$PROJECT_DIR$/showveoandroid/src/container/ILoader.java" />
         <option value="$PROJECT_DIR$/showveoandroid.container/src/base/Loader.java" />
         <option value="$PROJECT_DIR$/showveoandroid/src/view/movies/IMoviesView.java" />
@@ -148,13 +132,14 @@
         <option value="$PROJECT_DIR$/showveoandroid/src/container/IDataStore.java" />
         <option value="$PROJECT_DIR$/showveoandroid.phoneview/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/showveoandroid.model/src/movies/UserMovieCollection.java" />
-        <option value="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesView.java" />
         <option value="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/movielistview.xml" />
         <option value="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesArrayAdapter.java" />
         <option value="$PROJECT_DIR$/showveoandroid.phoneview/res/layout/movies.xml" />
         <option value="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesTab.java" />
         <option value="$PROJECT_DIR$/showveoandroid.test/src/test.java" />
+        <option value="$PROJECT_DIR$/showveoandroid/src/domain/UserMovieCollection.java" />
         <option value="$PROJECT_DIR$/showveoandroid.model/src/movies/MoviesModel.java" />
+        <option value="$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesView.java" />
       </list>
     </option>
   </component>
@@ -704,7 +689,7 @@
     <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="ExportedApkPath" value="$USER_HOME$/showveoandroid.apk" />
+    <property name="ExportedApkPath" value="$USER_HOME$/Dropbox/showveoandroid.apk" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="preferences.editor" />
@@ -1072,7 +1057,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959914" sideWeight="0.60258967" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959914" sideWeight="0.6713147" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868525" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Android Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1149,20 +1134,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/showveoandroid/src/domain/UserMovieCollection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="9" selection-start="110" selection-end="110" vertical-scroll-proportion="0.06147541">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="71" selection-start="2555" selection-end="2555" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/main/MainMenuItemArrayAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="72" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0">
@@ -1232,9 +1203,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/showveoandroid/src/domain/UserMovieCollection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="34" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/showveoandroid.model/src/movies/MoviesModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="67" selection-start="1866" selection-end="1866" vertical-scroll-proportion="0.5389344">
+        <state line="87" column="63" selection-start="2917" selection-end="2917" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="24" selection-start="2014" selection-end="2014" vertical-scroll-proportion="0.3545082">
           <folding />
         </state>
       </provider>

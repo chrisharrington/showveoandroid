@@ -3,6 +3,7 @@ package com.showveo.android.movies;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TabHost;
+import android.widget.TabWidget;
 import com.showveo.android.BaseTabView;
 import com.showveo.android.R;
 import com.showveo.android.ShowveoApplication;
@@ -89,6 +90,10 @@ public class MoviesView extends BaseTabView implements IMoviesView {
 		intent.putExtra("tabmoviesid", id.toString());
 		TabHost.TabSpec spec = host.newTabSpec(name).setIndicator(label).setContent(intent);
 		host.addTab(spec);
+
+		TabWidget widget = host.getTabWidget();
+		int count = widget.getChildCount();
+		widget.getChildAt(count-1).getLayoutParams().height = 35;
 	}
 
 	//----------------------------------------------------------------------------------------------------------------------------------
