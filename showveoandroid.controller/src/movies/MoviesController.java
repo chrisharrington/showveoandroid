@@ -1,4 +1,4 @@
-package main;
+package movies;
 
 import controller.IMoviesController;
 import model.IMoviesModel;

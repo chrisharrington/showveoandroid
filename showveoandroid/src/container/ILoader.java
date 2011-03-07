@@ -10,7 +10,8 @@ public interface ILoader {
 
 	/**
 	 * Loads the application.
+	 * @param store The main data store.
 	 */
-	void load();
+	void load(IDataStore store);
 
 }

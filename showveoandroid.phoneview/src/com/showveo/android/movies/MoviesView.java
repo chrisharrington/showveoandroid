@@ -1,20 +1,25 @@
 package com.showveo.android.movies;
 
+import android.content.Intent;
 import android.os.Bundle;
-import com.showveo.android.BaseView;
+import android.widget.TabHost;
+import com.showveo.android.BaseTabView;
 import com.showveo.android.R;
+import com.showveo.android.ShowveoApplication;
 import container.DR;
 import controller.IMoviesController;
 import domain.UserMovie;
+import domain.UserMovieCollection;
 import service.event.IEventHandler;
 import view.movies.IMoviesView;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * The view for the movie list page.
  */
-public class MoviesView extends BaseView implements IMoviesView {
+public class MoviesView extends BaseTabView implements IMoviesView {
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Data Members
@@ -59,7 +64,7 @@ public class MoviesView extends BaseView implements IMoviesView {
 		_controller.registerView(this);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.movies);
 
 		if (_onLoad != null)
 			_onLoad.run(null);
@@ -69,12 +74,21 @@ public class MoviesView extends BaseView implements IMoviesView {
 	//	Public Methods
 
 	/**
-	 * Sets the list of all movies.
-	 *
-	 * @param movies The list of movies.
+	 * Sets a collection of movies by name.
+	 * @param name The name of the collection.
+	 * @param label The name to show for the collection.
+	 * @param movies The movie collection.
 	 */
-	public void setMovies(List<UserMovie> movies) {
-		System.out.println("Movies set!");
+	public void setMovieCollectionByName(String name, String label, List<UserMovie> movies) {
+		ShowveoApplication application = (ShowveoApplication) getApplication();
+		UUID id = application.addData(new UserMovieCollection(movies));
+
+		TabHost host = this.getTabHost();
+		Intent intent = new Intent().setClass(this, MoviesTab.class);
+		intent.putExtra("tabname", name);
+		intent.putExtra("tabmoviesid", id.toString());
+		TabHost.TabSpec spec = host.newTabSpec(name).setIndicator(label).setContent(intent);
+		host.addTab(spec);
 	}
 
 	//----------------------------------------------------------------------------------------------------------------------------------

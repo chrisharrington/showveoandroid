@@ -1,6 +1,7 @@
 package com.showveo.android;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import com.showveo.android.main.MainView;
 import com.showveo.android.movies.MoviesView;
@@ -11,6 +12,12 @@ import view.IBaseView;
  * Provides basic view functionality.
  */
 public abstract class BaseView extends Activity implements IBaseView {
+
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Data Members
+
+	//	The progress dialog for the loading message.
+	private ProgressDialog _loading;
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
@@ -35,5 +42,29 @@ public abstract class BaseView extends Activity implements IBaseView {
 		startActivity(intent);
 	}
 
+	/**
+	 * Shows a losding message.
+	 * * @param message The loading message to show.
+	 */
+	public void showLoading(String message) {
+		if (message == null || message.equals(""))
+			message = "Loading. Please wait...";
+
+		if (_loading != null)
+			_loading.hide();
+
+		_loading = ProgressDialog.show(this, "", message, true);
+	}
+
+	/**
+	 * Hides any loading message.
+	 */
+	public void hideLoading() {
+		if (_loading == null)
+			return;
+
+		_loading.dismiss();
+		_loading = null;
+	}
 }
 

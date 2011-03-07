@@ -14,4 +14,15 @@ public interface IBaseView {
 	 */
 	void switchActivity(ActivityType type);
 
+	/**
+	 * Shows a losding message.
+	 * @param message The loading message to show.
+	 */
+	void showLoading(String message);
+
+	/**
+	 * Hides any loading message.
+	 */
+	void hideLoading();
+
 }

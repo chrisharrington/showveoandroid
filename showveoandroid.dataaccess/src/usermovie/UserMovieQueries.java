@@ -17,7 +17,7 @@ public class UserMovieQueries {
 	 * @return The retrieved user-movie objects.
 	 */
 	public static IQuery<UserMovie> getAllByUser() {
-		return new GetQuery<UserMovie>("movies/recent", UserMovie.class);
+		return new GetQuery<UserMovie>("movies/all", UserMovie.class);
 	}
 
 }

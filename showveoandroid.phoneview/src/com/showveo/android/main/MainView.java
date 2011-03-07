@@ -3,6 +3,8 @@ package com.showveo.android.main;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import com.showveo.android.BaseView;
 import com.showveo.android.R;
@@ -72,9 +74,17 @@ public class MainView extends BaseView implements IMainView
 	 * Sets the list of menu entries.
 	 * @param items The list of menu entries.
 	 */
-	public void setMenuEntries(List<IMainMenuItem> items) {
+	public void setMenuEntries(final List<IMainMenuItem> items) {
+		final Context context = this;
+
 		ListView list = (ListView) findViewById(R.id.lvMain);
-		list.setAdapter(new MainMenuItemArrayAdapter(this, R.layout.mainlistview, items, (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE), _onMenuItemSelected));
+		list.setAdapter(new MainMenuItemArrayAdapter(this, R.layout.mainlistview, items, (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)));
+		list.setOnItemClickListener(new ListView.OnItemClickListener() {
+			public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+				if (_onMenuItemSelected != null)
+					_onMenuItemSelected.run(items.get(position).getType());
+			}
+		});
 	}
 
 	//----------------------------------------------------------------------------------------------------------------------------------

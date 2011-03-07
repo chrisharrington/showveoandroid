@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import com.showveo.android.R;
-import service.event.IEventHandler;
 import view.main.IMainMenuItem;
 
 import java.util.List;
@@ -23,9 +22,6 @@ public class MainMenuItemArrayAdapter extends ArrayAdapter<IMainMenuItem> {
 	//	Inflates layout.
 	private final LayoutInflater _inflater;
 
-	//	Fired after the user has selected a menu item.
-	private final IEventHandler _onMenuItemSelected;
-
 	//	The resource ID.
 	private final int _resource;
 
@@ -38,15 +34,13 @@ public class MainMenuItemArrayAdapter extends ArrayAdapter<IMainMenuItem> {
 	 * @param resource The array adapter's resource.
 	 * @param objects The list of objects to bind to the adapter.
 	 * @param inflater Inflates layout.
-	 * @param onMenuItemSelected Fired after the user has selected a menu item.
 	 */
-	public MainMenuItemArrayAdapter(Context context, int resource, List<IMainMenuItem> objects, LayoutInflater inflater, IEventHandler onMenuItemSelected) {
+	public MainMenuItemArrayAdapter(Context context, int resource, List<IMainMenuItem> objects, LayoutInflater inflater) {
 		super(context, resource, objects);
 
 		_objects = objects;
 		_resource = resource;
 		_inflater = inflater;
-		_onMenuItemSelected = onMenuItemSelected;
 	}
 
 	//----------------------------------------------------------------------------------------------------------------------------------
@@ -67,13 +61,6 @@ public class MainMenuItemArrayAdapter extends ArrayAdapter<IMainMenuItem> {
 		final IMainMenuItem item = _objects.get(position);
 		if (item == null)
 			return view;
-
-		view.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View view) {
-				if (_onMenuItemSelected != null)
-					_onMenuItemSelected.run(item.getType());
-			}
-		});
 
 		TextView title = (TextView) view.findViewById(R.id.tvTitle);
 		if (title != null)

@@ -3,7 +3,6 @@ package usermovie;
 import dataaccess.IService;
 import dataaccess.usermovie.IUserMovieRepository;
 import domain.UserMovie;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
@@ -35,14 +34,6 @@ public class UserMovieRepository implements IUserMovieRepository {
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
-
-	/**
-	 * Retrieves a collection of user-movie information objects by user.
-	 * @return The retrieved collection of user-movie information objects.
-	 */
-	public List<UserMovie> getRecentByUser() {
-		throw new NotImplementedException();
-	}
 
 	/**
 	 * Retrieves a collection of user-movie information objects by user.

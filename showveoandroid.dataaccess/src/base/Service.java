@@ -133,9 +133,8 @@ public class Service implements IService {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			StringBuilder builder = new StringBuilder();
 			String line;
-			while ((line = reader.readLine()) != null) {
+			while ((line = reader.readLine()) != null)
 				builder.append(line).append("\n");
-			}
 
 			reader.close();
 

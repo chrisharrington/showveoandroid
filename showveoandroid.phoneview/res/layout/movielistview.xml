@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout android:id="@+id/LinearLayout01"
-        android:layout_width="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent"
         android:paddingLeft="10sp"
 		android:paddingRight="10sp"
         android:layout_height="wrap_content"
@@ -10,7 +10,7 @@
 		android:paddingBottom="5sp">
         <TextView android:layout_height="wrap_content"
                 android:layout_width="fill_parent"
-				android:id="@+id/tvContact"
+				android:id="@+id/tvName"
                 android:text="Name (2011)"
 				android:typeface="sans"
 				android:textSize="20sp"
@@ -20,20 +20,19 @@
         <LinearLayout android:id="@+id/LinearLayout02"
                 android:layout_height="wrap_content"
                 android:layout_width="fill_parent">
-                <TextView android:layout_width="wrap_content"
+                <TextView android:id="@+id/tvActors"
+						android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 						android:text="Actor 1, Actor 2, Actor 3, Actor 4, Actor 5"
-                        android:id="@+id/tvMobile"
 						android:textSize="12sp"
 						android:textColor="#FFF" />
         </LinearLayout>
-         <LinearLayout android:id="@+id/LinearLayout02"
-                android:layout_height="wrap_content"
+         <LinearLayout android:layout_height="wrap_content"
                 android:layout_width="fill_parent">
-                <TextView android:layout_width="wrap_content"
+                <TextView android:id="@+id/tvMail"
+						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						android:text="Lorem ipsum dolor sit amet, eget non, ut proin leo viverra eget suscipit. Id nunc quis nullam volutpat duis, sagittis magna, nulla sociis egestas morbi. Odio feugiat amet auctor, quam mollis vivamus vestibulum. Cras placerat erat tellus nunc, ante ut scelerisque ligula ridiculus tellus, leo elementum quis non. Nec vel nulla nibh. Id lobortis suspendisse feugiat sed ac, eget pellentesque praesent donec sapien netus nunc. Felis eget aenean accumsan, libero arcu imperdiet class nunc, morbi elementum proin et, ac elit. Natoque risus cras elit, numquam dui duis ligula dolor. In rhoncus, vel elit neque ut platea, libero tincidunt integer, diam magna amet sed senectus, parturient orci porttitor cursus pretium feugiat et. Ullamcorper mauris arcu arcu fringilla vivamus sollicitudin, aenean pellentesque praesent, consectetuer et, metus suscipit diam maecenas lacus, elit dolor placerat arcu. Facilisis luctus, in phasellus vestibulum aliquam dui proin."
-                        android:id="@+id/tvMail"
 						android:textSize="12sp"
 						android:ellipsize="end"
 						android:maxLines="2" />

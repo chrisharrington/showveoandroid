@@ -13,12 +13,6 @@ public interface IUserMovieRepository {
 
 	/**
 	 * Retrieves a collection of user-movie information objects by user.
-	 * @return The retrieved collection of user-movie information objects.
-	 */
-	List<UserMovie> getRecentByUser();
-
-	/**
-	 * Retrieves a collection of user-movie information objects by user.
 	 * @return	The retrieved collection of user-movie information objects.
 	 */
 	List<UserMovie> getAll();

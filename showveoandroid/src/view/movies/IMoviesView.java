@@ -15,10 +15,12 @@ public interface IMoviesView extends IBaseView {
 	//	Public Methods
 
 	/**
-	 * Sets the list of all movies.
-	 * @param movies The list of movies.
+	 * Sets a collection of movies by name.
+	 * @param name The name of the collection.
+	 * @param label The label to show for the collection.
+	 * @param movies The movie collection.
 	 */
-	void setMovies(List<UserMovie> movies);
+	void setMovieCollectionByName(String name, String label, List<UserMovie> movies);
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Event Handlers
