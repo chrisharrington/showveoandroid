@@ -20,6 +20,7 @@
     <orderEntry type="module" module-name="showveoandroid" exported="" />
     <orderEntry type="module" module-name="showveoandroid.dataaccess" exported="" />
     <orderEntry type="module" module-name="showveoandroid.service" />
+    <orderEntry type="module" module-name="showveoandroid.phoneview" />
   </component>
 </module>
 

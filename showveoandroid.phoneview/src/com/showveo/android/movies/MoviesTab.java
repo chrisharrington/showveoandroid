@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -47,4 +49,15 @@ public class MoviesTab extends Activity {
 		setContentView(list);
     }
 
+	/**
+	 * Creates the movies menu.
+	 * @param menu The menu.
+	 * @return A flag of some sort...
+	 */
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.moviesmenu, menu);
+		return true;
+	}
 }
