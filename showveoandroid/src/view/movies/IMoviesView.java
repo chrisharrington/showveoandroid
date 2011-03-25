@@ -1,6 +1,9 @@
 package view.movies;
 
+import domain.Genre;
+import domain.GenreCollection;
 import domain.UserMovie;
+import domain.UserMovieCollection;
 import service.event.IEventHandler;
 import view.IBaseView;
 
@@ -21,6 +24,13 @@ public interface IMoviesView extends IBaseView {
 	 * @param movies The movie collection.
 	 */
 	void setMovieCollectionByName(String name, String label, List<UserMovie> movies);
+
+	/**
+	 * Sets a collection of movies for a genre.
+	 * @param genres The genre collection.
+	 * @param movies The list of movies.
+	 */
+	void setGenreMovies(GenreCollection genres, UserMovieCollection movies);
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Event Handlers

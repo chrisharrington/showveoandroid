@@ -6,16 +6,22 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import com.showveo.android.BaseView;
 import com.showveo.android.R;
 import container.DR;
 import controller.IMoviesController;
+import domain.Genre;
+import domain.GenreCollection;
 import domain.UserMovie;
+import domain.UserMovieCollection;
 import service.event.IEventHandler;
 import view.movies.IMoviesView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -89,7 +95,7 @@ public class MoviesView extends BaseView implements IMoviesView {
 	public boolean onCreatePanelMenu(int featureId, Menu menu) {
 		for (Tab tab : _tabs.values())
 			menu.add(tab.getLabel());
-		return super.onCreatePanelMenu(featureId, menu);	//To change body of overridden methods use File | Settings | File Templates.
+		return super.onCreatePanelMenu(featureId, menu);
 	}
 
 	/**
@@ -102,7 +108,7 @@ public class MoviesView extends BaseView implements IMoviesView {
 		for (int i = 0; i < menu.size(); i++) {
 			MenuItem item = menu.getItem(i);
 			String label = item.getTitle().toString();
-			item.setVisible(_tabs.get(label).getList().getVisibility() == View.INVISIBLE);
+			item.setVisible(_tabs.get(label).getView().getVisibility() == View.INVISIBLE);
 		}
 		return super.onPrepareOptionsMenu(menu);
 	}
@@ -117,11 +123,11 @@ public class MoviesView extends BaseView implements IMoviesView {
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		for (Tab tab : _tabs.values()) {
 			if (tab.getLabel().equals(item.getTitle().toString())) {
-				tab.getList().setVisibility(View.VISIBLE);
+				tab.getView().setVisibility(View.VISIBLE);
 				setTitle("Movies - " + tab.getLabel());
 			}
 			else
-				tab.getList().setVisibility(View.INVISIBLE);
+				tab.getView().setVisibility(View.INVISIBLE);
 		}
 		return super.onMenuItemSelected(featureId, item);
 	}
@@ -136,7 +142,7 @@ public class MoviesView extends BaseView implements IMoviesView {
 	 * @param movies The movie collection.
 	 */
 	public void setMovieCollectionByName(String name, String label, List<UserMovie> movies) {
-		FrameLayout layout = (FrameLayout) findViewById(R.id.framelayout);
+		RelativeLayout layout = (RelativeLayout) findViewById(R.id.layout);
 
 		boolean isFirst = _tabs.size() == 0;
 
@@ -149,6 +155,45 @@ public class MoviesView extends BaseView implements IMoviesView {
 			this.setTitle("Movies - " + label);
 
 		_tabs.put(label, new Tab(name, label, movies, list));
+	}
+
+	/**
+	 * Sets a collection of movies for a genre.
+	 * @param genres The genre collection.
+	 * @param movies The list of movies.
+	 */
+	public void setGenreMovies(GenreCollection genres, UserMovieCollection movies) {
+		String label = "Genres";
+		RelativeLayout layout = (RelativeLayout) findViewById(R.id.layout);
+
+		boolean isFirst = _tabs.size() == 0;
+
+		RelativeLayout relative = new RelativeLayout(this);
+		relative.setVisibility(isFirst ? View.VISIBLE : View.INVISIBLE);
+
+		Spinner spinner = new Spinner(this);
+		spinner.setId(1);
+		List<String> genreStrings = new ArrayList<String>();
+		for (Genre genre : genres)
+			genreStrings.add(genre.getName());
+		spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.moviesspinneritem, genreStrings));
+		relative.addView(spinner, new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
+
+	  	ListView list = new ListView(this);
+		list.setId(2);
+		list.setAdapter(new MoviesArrayAdapter(this, R.layout.movielistview, movies, (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)));
+
+		RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+		lp.addRule(RelativeLayout.BELOW, spinner.getId());
+
+		relative.addView(list, lp);
+
+		layout.addView(relative, new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
+
+		if (isFirst)
+			this.setTitle("Movies - " + label);
+
+		_tabs.put(label, new Tab("genres", label, movies, relative));
 	}
 
 	//----------------------------------------------------------------------------------------------------------------------------------
@@ -175,18 +220,18 @@ public class MoviesView extends BaseView implements IMoviesView {
 		private String _name;
 		private String _label;
 		private List<UserMovie> _movies;
-		private ListView _list;
+		private View _view;
 
 		public String getName() { return _name; }
 		public String getLabel() { return _label; }
 		public List<UserMovie> getMovies() { return _movies; }
-		public ListView getList() { return _list; }
+		public View getView() { return _view; }
 
-		public Tab(String name, String label, List<UserMovie> movies, ListView list) {
+		public Tab(String name, String label, List<UserMovie> movies, View view) {
 			_name = name;
 			_label = label;
 			_movies = movies;
-			_list = list;
+			_view = view;
 		}
 	}
 }

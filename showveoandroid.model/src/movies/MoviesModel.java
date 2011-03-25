@@ -4,15 +4,16 @@ import android.os.Bundle;
 import android.os.Message;
 import base.BaseModel;
 import container.IDataStore;
+import dataaccess.genre.IGenreRepository;
 import dataaccess.usermovie.IUserMovieRepository;
+import domain.Genre;
+import domain.GenreCollection;
 import domain.UserMovie;
 import domain.UserMovieCollection;
 import model.IMoviesModel;
 import view.movies.IMoviesView;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.UUID;
+import java.util.*;
 
 public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel {
 
@@ -22,19 +23,31 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 	//	A container for user-movie information.
 	private final IUserMovieRepository _userMovieRepository;
 
+	//	A container for genre information.
+	private final IGenreRepository _genreRepository;
+
 	//	A process-wide data store used for holding query results across threads.
 	private final IDataStore _store;
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Constructors
 
-	public MoviesModel(IUserMovieRepository userMovieRepository, IDataStore store) {
+	/**
+	 * The default constructor.
+	 * @param userMovieRepository A container for user-movie information.
+	 * @param genreRepository A container for genre information.
+	 * @param store The persistent data store.
+	 */
+	public MoviesModel(IUserMovieRepository userMovieRepository, IGenreRepository genreRepository, IDataStore store) {
 		if (userMovieRepository == null)
 			throw new IllegalArgumentException("userMovieRepository");
+		if (genreRepository == null)
+			throw new IllegalArgumentException("genreRepository");
 		if (store == null)
 			throw new IllegalArgumentException("store");
 
 		_userMovieRepository = userMovieRepository;
+		_genreRepository = genreRepository;
 		_store = store;
 	}
 
@@ -48,29 +61,56 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 		_view.showLoading("Loading movies...");
 
 		final android.os.Handler handler = new android.os.Handler() {
+			private Map<String,Boolean> _status;
+			private UserMovieCollection _movies;
+			private GenreCollection _genres;
+
 			@Override
 			public void handleMessage(Message msg) {
 				Bundle bundle = msg.getData();
-				UUID id = UUID.fromString(bundle.getString("moviecollectionid"));
+				if (bundle.containsKey("moviecollectionid"))
+					_movies = _store.getData(UUID.fromString(bundle.getString("moviecollectionid")), UserMovieCollection.class);
+				if (bundle.containsKey("genresid"))
+					_genres = _store.getData(UUID.fromString(bundle.getString("genresid")), GenreCollection.class);
 
-				UserMovieCollection collection = _store.getData(id, UserMovieCollection.class);
-				Collections.sort(collection, new NameSorter());
+				if (_movies == null || _genres == null)
+					return;
+
+				Collections.sort(_movies, new NameSorter());
 
 				_view.hideLoading();
-				_view.setMovieCollectionByName("recent", "Recent", deriveRecent(collection));
-				_view.setMovieCollectionByName("favorites", "Favorites", deriveFavorites(collection));
-				_view.setMovieCollectionByName("genres", "Genres", collection);
-				_view.setMovieCollectionByName("all", "All", collection);
+				_view.setMovieCollectionByName("recent", "Recent", deriveRecent(_movies));
+				_view.setMovieCollectionByName("favorites", "Favorites", deriveFavorites(_movies));
+				_view.setGenreMovies(_genres, deriveGenres(_movies, _genres.get(0)));
+				_view.setMovieCollectionByName("all", "All", _movies);
+
+				_movies = null;
+				_genres = null;
 			}
 		};
 
 		new Thread(new Runnable() {
 			public void run() {
-				UserMovieCollection list = new UserMovieCollection(_userMovieRepository.getAll());
-				UUID id = _store.addData(list);
+				UserMovieCollection movies = new UserMovieCollection(_userMovieRepository.getAll());
+				UUID id = _store.addData(movies);
 
 				Bundle bundle = new Bundle();
 				bundle.putString("moviecollectionid", id.toString());
+
+				Message message = new Message();
+				message.setData(bundle);
+
+				handler.sendMessage(message);
+			}
+		}).start();
+
+		new Thread(new Runnable() {
+			public void run() {
+				List<Genre> genres = _genreRepository.getAll();
+				UUID id = _store.addData(new GenreCollection(genres));
+
+				Bundle bundle = new Bundle();
+				bundle.putString("genresid", id.toString());
 
 				Message message = new Message();
 				message.setData(bundle);
@@ -82,6 +122,19 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Private Methods
+
+	/**
+	 * Derives a list of movies by genre.
+	 * @param movies The collection of movies from which the derived movies should be retrieved.
+	 * @param genre The genre to filter by.
+	 */
+	private UserMovieCollection deriveGenres(UserMovieCollection movies, Genre genre) {
+		UserMovieCollection list = new UserMovieCollection();
+		for (UserMovie info : movies)
+			if (info.getMovie().getGenres().contains(genre))
+				list.add(info);
+		return list;
+	}
 
 	/**
 	 * Derives a collection of only the most recent movies.
