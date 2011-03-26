@@ -6,10 +6,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.Spinner;
+import android.widget.*;
 import com.showveo.android.BaseView;
 import com.showveo.android.R;
 import container.DR;
@@ -18,7 +15,8 @@ import domain.Genre;
 import domain.GenreCollection;
 import domain.UserMovie;
 import domain.UserMovieCollection;
-import service.event.IEventHandler;
+import service.event.IEmptyEventHandler;
+import service.event.IParameterizedEventHandler;
 import view.movies.IMoviesView;
 
 import java.util.ArrayList;
@@ -35,7 +33,10 @@ public class MoviesView extends BaseView implements IMoviesView {
 	//	Data Members
 
 	//	The load event handler.  Fired after the view loads.
-	private IEventHandler _onLoad;
+	private IEmptyEventHandler _onLoad;
+
+	//	The genre changed event handler.  Fired after the user changes the genre.
+	private IParameterizedEventHandler<String> _onGenreChanged;
 
 	//	The controller used to control this view.
 	private final IMoviesController _controller;
@@ -82,7 +83,7 @@ public class MoviesView extends BaseView implements IMoviesView {
 		setTitle("Movies");
 
 		if (_onLoad != null)
-			_onLoad.run(null);
+			_onLoad.run();
     }
 
 	/**
@@ -177,6 +178,15 @@ public class MoviesView extends BaseView implements IMoviesView {
 		for (Genre genre : genres)
 			genreStrings.add(genre.getName());
 		spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.moviesspinneritem, genreStrings));
+		spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+			public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+				String genre = (String) ((TextView) view).getText();
+				if (_onGenreChanged != null)
+					_onGenreChanged.run(genre);
+			}
+
+			public void onNothingSelected(AdapterView<?> adapterView) {}
+		});
 		relative.addView(spinner, new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
 
 	  	ListView list = new ListView(this);
@@ -196,6 +206,15 @@ public class MoviesView extends BaseView implements IMoviesView {
 		_tabs.put(label, new Tab("genres", label, movies, relative));
 	}
 
+	/**
+	 * Updates the viewable list of genre movies.
+	 * @param movies The movies collection filtered by genre.
+	 */
+	public void updateGenreMovies(UserMovieCollection movies) {
+		ListView list = (ListView) _tabs.get("Genres").getView().findViewById(2);
+		list.setAdapter(new MoviesArrayAdapter(this, R.layout.movielistview, movies, (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)));
+	}
+
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Event Handlers
 
@@ -203,11 +222,22 @@ public class MoviesView extends BaseView implements IMoviesView {
 	 * Fired after the view has loaded.
 	 * @param handler The event handler.
 	 */
-	public void onLoadHandler(onLoad handler) {
+	public void onLoadHandler(IEmptyEventHandler handler) {
 		if (handler == null)
 			throw new IllegalArgumentException("handler");
 
 		_onLoad = handler;
+	}
+
+	/**
+	 * Fired after the user changes the genre.
+	 * @param handler The event handler.
+	 */
+	public void onGenreChangedHandler(IParameterizedEventHandler<String> handler) {
+		if (handler == null)
+			throw new IllegalArgumentException("handler");
+
+		_onGenreChanged = handler;
 	}
 
 	//----------------------------------------------------------------------------------------------------------------------------------

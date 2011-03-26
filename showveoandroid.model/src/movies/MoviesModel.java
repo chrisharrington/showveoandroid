@@ -1,54 +1,45 @@
 package movies;
 
-import android.os.Bundle;
-import android.os.Message;
 import base.BaseModel;
-import container.IDataStore;
-import dataaccess.genre.IGenreRepository;
-import dataaccess.usermovie.IUserMovieRepository;
+import container.IContainer;
 import domain.Genre;
 import domain.GenreCollection;
 import domain.UserMovie;
 import domain.UserMovieCollection;
-import model.IMoviesModel;
+import model.movies.ILoadMoviesRunner;
+import model.movies.IMoviesModel;
+import service.event.IParameterizedEventHandler;
 import view.movies.IMoviesView;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel {
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Data Members
 
-	//	A container for user-movie information.
-	private final IUserMovieRepository _userMovieRepository;
+	//	Loads the movie and genre collections.
+	private final ILoadMoviesRunner _loadMoviesRunner;
 
-	//	A container for genre information.
-	private final IGenreRepository _genreRepository;
+	//	The retrieved user-movie information collection.
+	private UserMovieCollection _movies;
 
-	//	A process-wide data store used for holding query results across threads.
-	private final IDataStore _store;
+	//	The retrieved genre information collection.
+	private GenreCollection _genres;
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Constructors
 
 	/**
 	 * The default constructor.
-	 * @param userMovieRepository A container for user-movie information.
-	 * @param genreRepository A container for genre information.
-	 * @param store The persistent data store.
+	 * @param loadMoviesRunner Loads the movie and genre collections.
 	 */
-	public MoviesModel(IUserMovieRepository userMovieRepository, IGenreRepository genreRepository, IDataStore store) {
-		if (userMovieRepository == null)
-			throw new IllegalArgumentException("userMovieRepository");
-		if (genreRepository == null)
-			throw new IllegalArgumentException("genreRepository");
-		if (store == null)
-			throw new IllegalArgumentException("store");
+	public MoviesModel(ILoadMoviesRunner loadMoviesRunner) {
+		if (loadMoviesRunner == null)
+			throw new IllegalArgumentException("loadMoviesRunner");
 
-		_userMovieRepository = userMovieRepository;
-		_genreRepository = genreRepository;
-		_store = store;
+		_loadMoviesRunner = loadMoviesRunner;
 	}
 
 	//----------------------------------------------------------------------------------------------------------------------------------
@@ -60,21 +51,10 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 	public void loadMovies() {
 		_view.showLoading("Loading movies...");
 
-		final android.os.Handler handler = new android.os.Handler() {
-			private Map<String,Boolean> _status;
-			private UserMovieCollection _movies;
-			private GenreCollection _genres;
-
-			@Override
-			public void handleMessage(Message msg) {
-				Bundle bundle = msg.getData();
-				if (bundle.containsKey("moviecollectionid"))
-					_movies = _store.getData(UUID.fromString(bundle.getString("moviecollectionid")), UserMovieCollection.class);
-				if (bundle.containsKey("genresid"))
-					_genres = _store.getData(UUID.fromString(bundle.getString("genresid")), GenreCollection.class);
-
-				if (_movies == null || _genres == null)
-					return;
+		_loadMoviesRunner.run(new IParameterizedEventHandler<IContainer>() {
+			public void run(IContainer data) {
+				_movies = data.get(UserMovieCollection.class);
+				_genres = data.get(GenreCollection.class);
 
 				Collections.sort(_movies, new NameSorter());
 
@@ -83,41 +63,16 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 				_view.setMovieCollectionByName("favorites", "Favorites", deriveFavorites(_movies));
 				_view.setGenreMovies(_genres, deriveGenres(_movies, _genres.get(0)));
 				_view.setMovieCollectionByName("all", "All", _movies);
-
-				_movies = null;
-				_genres = null;
 			}
-		};
+		});
+	}
 
-		new Thread(new Runnable() {
-			public void run() {
-				UserMovieCollection movies = new UserMovieCollection(_userMovieRepository.getAll());
-				UUID id = _store.addData(movies);
-
-				Bundle bundle = new Bundle();
-				bundle.putString("moviecollectionid", id.toString());
-
-				Message message = new Message();
-				message.setData(bundle);
-
-				handler.sendMessage(message);
-			}
-		}).start();
-
-		new Thread(new Runnable() {
-			public void run() {
-				List<Genre> genres = _genreRepository.getAll();
-				UUID id = _store.addData(new GenreCollection(genres));
-
-				Bundle bundle = new Bundle();
-				bundle.putString("genresid", id.toString());
-
-				Message message = new Message();
-				message.setData(bundle);
-
-				handler.sendMessage(message);
-			}
-		}).start();
+	/**
+	 * Loads genre movies with the given genre filter.
+	 * @param genreName The genre filter.
+	 */
+	public void loadMoviesForGenre(String genreName) {
+		_view.updateGenreMovies(deriveGenres(_movies, _genres.getByName(genreName)));
 	}
 
 	//----------------------------------------------------------------------------------------------------------------------------------
@@ -127,8 +82,12 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 	 * Derives a list of movies by genre.
 	 * @param movies The collection of movies from which the derived movies should be retrieved.
 	 * @param genre The genre to filter by.
+	 * @return The derived genres movie list.
 	 */
 	private UserMovieCollection deriveGenres(UserMovieCollection movies, Genre genre) {
+		if (genre == null)
+			return movies;
+
 		UserMovieCollection list = new UserMovieCollection();
 		for (UserMovie info : movies)
 			if (info.getMovie().getGenres().contains(genre))

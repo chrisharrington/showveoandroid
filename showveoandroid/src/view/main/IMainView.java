@@ -1,6 +1,7 @@
 package view.main;
 
-import service.event.IEventHandler;
+import service.event.IEmptyEventHandler;
+import service.event.IParameterizedEventHandler;
 import view.IBaseView;
 
 import java.util.List;
@@ -26,14 +27,12 @@ public interface IMainView extends IBaseView {
 	 * Fired after the view has loaded.
 	 * @param handler The event handler.
 	 */
-	void onLoadHandler(IMainView.onLoad handler);
-	static interface onLoad extends IEventHandler {}
+	void onLoadHandler(IEmptyEventHandler handler);
 
 	/**
 	 * Fired after the user has selected a menu item.
 	 * @param handler The event handler.
 	 */
-	void onMenuItemSelectedHandler(IEventHandler handler);
-	static interface onMenuItemSelected extends IEventHandler {}
+	void onMenuItemSelectedHandler(IParameterizedEventHandler<MainMenuType> handler);
 
 }

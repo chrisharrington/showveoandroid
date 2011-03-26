@@ -2,6 +2,8 @@ package main;
 
 import controller.IMainController;
 import model.IMainModel;
+import service.event.IEmptyEventHandler;
+import service.event.IParameterizedEventHandler;
 import view.ActivityType;
 import view.main.IMainView;
 import view.main.MainMenuType;
@@ -59,18 +61,18 @@ public class MainController implements IMainController {
 	 * Loads the event handlers.
 	 */
 	private void loadHandlers() {
-		_view.onLoadHandler(new IMainView.onLoad() {
-			public <T> void run(T data) {
+		_view.onLoadHandler(new IEmptyEventHandler() {
+			public void run() {
 				_model.loadMenuEntries();
 			}
 		});
 
-		_view.onMenuItemSelectedHandler(new IMainView.onMenuItemSelected() {
-			public <T> void run(T data) {
-				if (data == null || !(data instanceof MainMenuType))
+		_view.onMenuItemSelectedHandler(new IParameterizedEventHandler<MainMenuType>() {
+			public void run(MainMenuType data) {
+				if (data == null)
 					throw new IllegalArgumentException("data");
 
-				switch ((MainMenuType) data)  {
+				switch (data)  {
 					case Movies:
 						_view.switchActivity(ActivityType.Movies);
 						break;

@@ -1,9 +1,9 @@
 package service.event;
 
 /**
- * Defines an event handler.
+ * Defines a parameterized event handler.
  */
-public interface IEventHandler {
+public interface IParameterizedEventHandler<T> {
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
@@ -12,6 +12,6 @@ public interface IEventHandler {
 	 * Runs the event handler.
 	 * @param data Any event data.
 	 */
-	<T>void run(T data);
+	void run(T data);
 
 }

@@ -1,10 +1,10 @@
 package view.movies;
 
-import domain.Genre;
 import domain.GenreCollection;
 import domain.UserMovie;
 import domain.UserMovieCollection;
-import service.event.IEventHandler;
+import service.event.IEmptyEventHandler;
+import service.event.IParameterizedEventHandler;
 import view.IBaseView;
 
 import java.util.List;
@@ -32,6 +32,12 @@ public interface IMoviesView extends IBaseView {
 	 */
 	void setGenreMovies(GenreCollection genres, UserMovieCollection movies);
 
+	/**
+	 * Updates the viewable list of genre movies.
+	 * @param movies The movies collection filtered by genre.
+	 */
+	void updateGenreMovies(UserMovieCollection movies);
+
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Event Handlers
 
@@ -39,7 +45,12 @@ public interface IMoviesView extends IBaseView {
 	 * Fired after the view has loaded.
 	 * @param handler The event handler.
 	 */
-	void onLoadHandler(onLoad handler);
-	static interface onLoad extends IEventHandler {}
+	void onLoadHandler(IEmptyEventHandler handler);
+
+	/**
+	 * Fired after the user changes the genre.
+	 * @param handler The event handler.
+	 */
+	void onGenreChangedHandler(IParameterizedEventHandler<String> handler);
 
 }

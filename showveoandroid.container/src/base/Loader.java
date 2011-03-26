@@ -14,7 +14,9 @@ import genre.GenreRepository;
 import main.MainController;
 import main.MainModel;
 import model.IMainModel;
-import model.IMoviesModel;
+import model.movies.ILoadMoviesRunner;
+import model.movies.IMoviesModel;
+import movies.LoadMoviesRunner;
 import movies.MoviesController;
 import movies.MoviesModel;
 import security.Cryptographer;
@@ -97,7 +99,8 @@ public class Loader implements ILoader {
 		DR.register(IMainModel.class, new MainModel());
 		DR.register(IMainController.class, new MainController(DR.get(IMainModel.class)));
 
-		DR.register(IMoviesModel.class, new MoviesModel(DR.get(IUserMovieRepository.class), DR.get(IGenreRepository.class), DR.get(IDataStore.class)));
+		DR.register(ILoadMoviesRunner.class, new LoadMoviesRunner(DR.get(IDataStore.class), DR.get(IUserMovieRepository.class), DR.get(IGenreRepository.class)));
+		DR.register(IMoviesModel.class, new MoviesModel(DR.get(ILoadMoviesRunner.class)));
 		DR.register(IMoviesController.class, new MoviesController(DR.get(IMoviesModel.class)));
 	}
 

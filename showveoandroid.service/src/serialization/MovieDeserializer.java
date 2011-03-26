@@ -80,7 +80,7 @@ public class MovieDeserializer implements JsonDeserializer<Movie> {
 		element = object.get("file");
 		movie.setFile(element == null ? "" : element.getAsString());
 
-		element = object.get("isEncoded");
+		element = object.get("encoded");
 		movie.isEncoded(element != null && element.getAsBoolean());
 
 		return movie;

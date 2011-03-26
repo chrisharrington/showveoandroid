@@ -10,9 +10,11 @@ import com.showveo.android.BaseView;
 import com.showveo.android.R;
 import container.DR;
 import controller.IMainController;
-import service.event.IEventHandler;
+import service.event.IEmptyEventHandler;
+import service.event.IParameterizedEventHandler;
 import view.main.IMainMenuItem;
 import view.main.IMainView;
+import view.main.MainMenuType;
 
 import java.util.List;
 
@@ -26,10 +28,10 @@ public class MainView extends BaseView implements IMainView
 	private final IMainController _controller;
 
 	//	The load event handler.  Fired when the activity loads.
-	private IEventHandler _onLoad;
+	private IEmptyEventHandler _onLoad;
 
 	//	The menu item selected handler.  Fired when the user clicks on a menu item.
-	private IEventHandler _onMenuItemSelected;
+	private IParameterizedEventHandler<MainMenuType> _onMenuItemSelected;
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Constructors
@@ -67,7 +69,7 @@ public class MainView extends BaseView implements IMainView
         setContentView(R.layout.main);
 
 		if (_onLoad != null)
-			_onLoad.run(null);
+			_onLoad.run();
     }
 
 	/**
@@ -94,7 +96,7 @@ public class MainView extends BaseView implements IMainView
 	 * Fired after the view has loaded.
 	 * @param handler The event handler.
 	 */
-	public void onLoadHandler(onLoad handler) {
+	public void onLoadHandler(IEmptyEventHandler handler) {
 		if (handler == null)
 			throw new IllegalArgumentException("handler");
 
@@ -105,7 +107,7 @@ public class MainView extends BaseView implements IMainView
 	 * Fired after the user has selected a menu item.
 	 * @param handler The event handler.
 	 */
-	public void onMenuItemSelectedHandler(IEventHandler handler) {
+	public void onMenuItemSelectedHandler(IParameterizedEventHandler<MainMenuType> handler) {
 		if (handler == null)
 			throw new IllegalArgumentException("handler");
 

@@ -1,7 +1,9 @@
 package movies;
 
 import controller.IMoviesController;
-import model.IMoviesModel;
+import model.movies.IMoviesModel;
+import service.event.IEmptyEventHandler;
+import service.event.IParameterizedEventHandler;
 import view.movies.IMoviesView;
 
 /**
@@ -53,11 +55,16 @@ public class MoviesController implements IMoviesController {
 	 * Loads the event handlers.
 	 */
 	private void loadHandlers() {
-		_view.onLoadHandler(new IMoviesView.onLoad() {
-			public <T> void run(T data) {
+		_view.onLoadHandler(new IEmptyEventHandler() {
+			public void run() {
 				_model.loadMovies();
 			}
 		});
-	}
 
+		_view.onGenreChangedHandler(new IParameterizedEventHandler<String>() {
+			public void run(String genre) {
+				_model.loadMoviesForGenre(genre);
+			}
+		});
+	}
 }

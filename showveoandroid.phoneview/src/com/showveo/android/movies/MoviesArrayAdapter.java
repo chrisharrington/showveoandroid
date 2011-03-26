@@ -69,6 +69,10 @@ public class MoviesArrayAdapter extends ArrayAdapter<UserMovie> {
 		if (name != null)
 			name.setText(movie.getName() + " (" + movie.getYear() + ")");
 
+		TextView encoding = (TextView) view.findViewById(R.id.tvIsEncoding);
+		if (encoding != null)
+			encoding.setVisibility(movie.isEncoded() ? View.GONE : View.VISIBLE);
+
 		TextView actors = (TextView) view.findViewById(R.id.tvActors);
 		if (actors != null)
 			actors.setText(joinString(movie.getActors()));

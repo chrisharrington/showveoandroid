@@ -1,5 +1,6 @@
-package model;
+package model.movies;
 
+import model.IBaseModel;
 import view.movies.IMoviesView;
 
 /**
@@ -21,4 +22,9 @@ public interface IMoviesModel extends IBaseModel<IMoviesView> {
 	 */
 	void loadMovies();
 
+	/**
+	 * Loads genre movies with the given genre filter.
+	 * @param genre The genre filter.
+	 */
+	void loadMoviesForGenre(String genre);
 }
