@@ -30,18 +30,15 @@
                 <TextView android:id="@+id/tvActors"
 						android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-						android:text="Actor 1, Actor 2, Actor 3, Actor 4, Actor 5"
 						android:textSize="12sp"
 						android:textColor="#FFF" />
         </LinearLayout>
          <LinearLayout android:layout_height="wrap_content"
                 android:layout_width="fill_parent">
-                <TextView android:id="@+id/tvMail"
+                <TextView android:id="@+id/tvDescription"
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
-						android:text="Lorem ipsum dolor sit amet, eget non, ut proin leo viverra eget suscipit. Id nunc quis nullam volutpat duis, sagittis magna, nulla sociis egestas morbi. Odio feugiat amet auctor, quam mollis vivamus vestibulum. Cras placerat erat tellus nunc, ante ut scelerisque ligula ridiculus tellus, leo elementum quis non. Nec vel nulla nibh. Id lobortis suspendisse feugiat sed ac, eget pellentesque praesent donec sapien netus nunc. Felis eget aenean accumsan, libero arcu imperdiet class nunc, morbi elementum proin et, ac elit. Natoque risus cras elit, numquam dui duis ligula dolor. In rhoncus, vel elit neque ut platea, libero tincidunt integer, diam magna amet sed senectus, parturient orci porttitor cursus pretium feugiat et. Ullamcorper mauris arcu arcu fringilla vivamus sollicitudin, aenean pellentesque praesent, consectetuer et, metus suscipit diam maecenas lacus, elit dolor placerat arcu. Facilisis luctus, in phasellus vestibulum aliquam dui proin."
 						android:textSize="12sp"
-						android:ellipsize="end"
-						android:maxLines="2" />
+						android:ellipsize="end" />
         </LinearLayout>
 </LinearLayout>

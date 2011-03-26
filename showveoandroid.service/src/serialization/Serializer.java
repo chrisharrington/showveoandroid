@@ -101,7 +101,7 @@ public class Serializer implements ISerializer {
 	private ArrayList<String> getCollectionSections(String string) {
 		if (string.charAt(0) != '[')
 			return null;
-		char blah = string.charAt(string.length()-1);
+
 		if (string.charAt(string.length()-1) != ']')
 			return null;
 
