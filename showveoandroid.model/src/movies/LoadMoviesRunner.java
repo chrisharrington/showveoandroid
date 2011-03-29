@@ -13,6 +13,7 @@ import domain.UserMovieCollection;
 import model.movies.ILoadMoviesRunner;
 import service.event.IParameterizedEventHandler;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -117,6 +118,7 @@ public class LoadMoviesRunner implements ILoadMoviesRunner {
 		new Thread(new Runnable() {
 			public void run() {
 				UserMovieCollection movies = new UserMovieCollection(_userMovieRepository.getAll());
+
 				UUID id = _store.addData(movies);
 
 				Bundle bundle = new Bundle();

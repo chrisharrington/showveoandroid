@@ -2,10 +2,7 @@ package movies;
 
 import base.BaseModel;
 import container.IContainer;
-import domain.Genre;
-import domain.GenreCollection;
-import domain.UserMovie;
-import domain.UserMovieCollection;
+import domain.*;
 import model.movies.ILoadMoviesRunner;
 import model.movies.IMoviesModel;
 import service.event.IParameterizedEventHandler;
@@ -28,18 +25,25 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 	//	The retrieved genre information collection.
 	private GenreCollection _genres;
 
+	//	The base movie location.
+	private final String _baseMovieLocation;
+
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Constructors
 
 	/**
 	 * The default constructor.
 	 * @param loadMoviesRunner Loads the movie and genre collections.
+	 * @param baseMovieLocation The base movie location.
 	 */
-	public MoviesModel(ILoadMoviesRunner loadMoviesRunner) {
+	public MoviesModel(ILoadMoviesRunner loadMoviesRunner, String baseMovieLocation) {
 		if (loadMoviesRunner == null)
 			throw new IllegalArgumentException("loadMoviesRunner");
+		if (baseMovieLocation == null || baseMovieLocation.equals(""))
+			throw new IllegalArgumentException("baseMovieLocation");
 
 		_loadMoviesRunner = loadMoviesRunner;
+		_baseMovieLocation = baseMovieLocation;
 	}
 
 	//----------------------------------------------------------------------------------------------------------------------------------
@@ -72,7 +76,21 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 	 * @param genreName The genre filter.
 	 */
 	public void loadMoviesForGenre(String genreName) {
+		if (genreName == null || genreName.equals(""))
+			throw new IllegalArgumentException("genreName");
+
 		_view.updateGenreMovies(deriveGenres(_movies, _genres.getByName(genreName)));
+	}
+
+	/**
+	 * Loads a movie view.
+	 * @param movie The movie to watch.
+	 */
+	public void loadMovieView(Movie movie) {
+		if (movie == null)
+			throw new IllegalArgumentException("movie");
+
+		_view.loadMovieActivity(_baseMovieLocation + movie.getUrl());
 	}
 
 	//----------------------------------------------------------------------------------------------------------------------------------

@@ -83,6 +83,9 @@ public class MovieDeserializer implements JsonDeserializer<Movie> {
 		element = object.get("encoded");
 		movie.isEncoded(element != null && element.getAsBoolean());
 
+		element = object.get("url");
+		movie.setUrl(element == null ? "" : element.getAsString());
+
 		return movie;
 	}
 }

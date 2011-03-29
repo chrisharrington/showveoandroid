@@ -39,7 +39,7 @@ public class Loader implements ILoader {
 	//	Data Members
 
     //  The location of the remote service.
-	private final static String _remoteServiceLocation = "http://68.147.201.165:3000/";
+	private final static String _remoteLocation = "http://68.147.201.165:3000/";
 	
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
@@ -84,7 +84,7 @@ public class Loader implements ILoader {
 	 * Loads the data access components for the application.
 	 */
 	private static void loadDataAccess() {
-		IService service = new Service(_remoteServiceLocation, DR.get(ISerializer.class), DR.get(ISessionManager.class), false);
+		IService service = new Service(_remoteLocation, DR.get(ISerializer.class), DR.get(ISessionManager.class), false);
 		DR.register(IService.class, service);
 		
 		DR.register(IUserRepository.class, new UserRepository(service));
@@ -100,7 +100,7 @@ public class Loader implements ILoader {
 		DR.register(IMainController.class, new MainController(DR.get(IMainModel.class)));
 
 		DR.register(ILoadMoviesRunner.class, new LoadMoviesRunner(DR.get(IDataStore.class), DR.get(IUserMovieRepository.class), DR.get(IGenreRepository.class)));
-		DR.register(IMoviesModel.class, new MoviesModel(DR.get(ILoadMoviesRunner.class)));
+		DR.register(IMoviesModel.class, new MoviesModel(DR.get(ILoadMoviesRunner.class), _remoteLocation));
 		DR.register(IMoviesController.class, new MoviesController(DR.get(IMoviesModel.class)));
 	}
 

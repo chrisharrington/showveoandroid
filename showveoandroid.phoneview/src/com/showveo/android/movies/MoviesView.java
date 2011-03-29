@@ -11,10 +11,7 @@ import com.showveo.android.BaseView;
 import com.showveo.android.R;
 import container.DR;
 import controller.IMoviesController;
-import domain.Genre;
-import domain.GenreCollection;
-import domain.UserMovie;
-import domain.UserMovieCollection;
+import domain.*;
 import service.event.IEmptyEventHandler;
 import service.event.IParameterizedEventHandler;
 import view.movies.IMoviesView;
@@ -38,6 +35,9 @@ public class MoviesView extends BaseView implements IMoviesView {
 	//	The genre changed event handler.  Fired after the user changes the genre.
 	private IParameterizedEventHandler<String> _onGenreChanged;
 
+	//	The movie selected handler.  Fired after the user has selected a movie.
+	private IParameterizedEventHandler<Movie> _onMovieSelected;
+
 	//	The controller used to control this view.
 	private final IMoviesController _controller;
 
@@ -60,7 +60,7 @@ public class MoviesView extends BaseView implements IMoviesView {
 	}
 
 	/**
-	 * The empty constructor.
+	 * The empty constructor.  Pulls required elements from the dependency resolver.
 	 */
 	public MoviesView() {
 		this(DR.get(IMoviesController.class));
@@ -142,20 +142,25 @@ public class MoviesView extends BaseView implements IMoviesView {
 	 * @param label The name to show for the collection.
 	 * @param movies The movie collection.
 	 */
-	public void setMovieCollectionByName(String name, String label, List<UserMovie> movies) {
+	public void setMovieCollectionByName(String name, String label, final List<UserMovie> movies) {
 		RelativeLayout layout = (RelativeLayout) findViewById(R.id.layout);
 
 		boolean isFirst = _tabs.size() == 0;
 
 		ListView list = new ListView(this);
 		list.setVisibility(isFirst ? View.VISIBLE : View.INVISIBLE);
+		list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+				_onMovieSelected.run(movies.get(i).getMovie());
+			}
+		});
 		list.setAdapter(new MoviesArrayAdapter(this, R.layout.movielistview, movies, (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)));
 		layout.addView(list);
 
 		if (isFirst)
 			this.setTitle("Movies - " + label);
 
-		_tabs.put(label, new Tab(name, label, movies, list));
+		_tabs.put(label, new Tab(label, list));
 	}
 
 	/**
@@ -163,7 +168,7 @@ public class MoviesView extends BaseView implements IMoviesView {
 	 * @param genres The genre collection.
 	 * @param movies The list of movies.
 	 */
-	public void setGenreMovies(GenreCollection genres, UserMovieCollection movies) {
+	public void setGenreMovies(GenreCollection genres, final UserMovieCollection movies) {
 		String label = "Genres";
 		RelativeLayout layout = (RelativeLayout) findViewById(R.id.layout);
 
@@ -191,6 +196,11 @@ public class MoviesView extends BaseView implements IMoviesView {
 
 	  	ListView list = new ListView(this);
 		list.setId(2);
+		list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+				_onMovieSelected.run(movies.get(i).getMovie());
+			}
+		});
 		list.setAdapter(new MoviesArrayAdapter(this, R.layout.movielistview, movies, (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)));
 
 		RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.FILL_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
@@ -203,7 +213,7 @@ public class MoviesView extends BaseView implements IMoviesView {
 		if (isFirst)
 			this.setTitle("Movies - " + label);
 
-		_tabs.put(label, new Tab("genres", label, movies, relative));
+		_tabs.put(label, new Tab(label, relative));
 	}
 
 	/**
@@ -240,6 +250,17 @@ public class MoviesView extends BaseView implements IMoviesView {
 		_onGenreChanged = handler;
 	}
 
+	/**
+	 * Fired after the user has selected a movie.
+	 * @param handler The event handler.
+	 */
+	public void onMovieSelected(IParameterizedEventHandler<Movie> handler) {
+		if (handler == null)
+			throw new IllegalArgumentException("handler");
+
+		_onMovieSelected = handler;
+	}
+
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Tab Class
 
@@ -247,20 +268,14 @@ public class MoviesView extends BaseView implements IMoviesView {
 	 * A class used to keep track of tab information.
 	 */
 	private class Tab {
-		private String _name;
 		private String _label;
-		private List<UserMovie> _movies;
 		private View _view;
 
-		public String getName() { return _name; }
 		public String getLabel() { return _label; }
-		public List<UserMovie> getMovies() { return _movies; }
 		public View getView() { return _view; }
 
-		public Tab(String name, String label, List<UserMovie> movies, View view) {
-			_name = name;
+		public Tab(String label, View view) {
 			_label = label;
-			_movies = movies;
 			_view = view;
 		}
 	}

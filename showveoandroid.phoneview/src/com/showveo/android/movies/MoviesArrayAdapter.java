@@ -39,6 +39,9 @@ public class MoviesArrayAdapter extends ArrayAdapter<UserMovie> {
 	public MoviesArrayAdapter(Context context, int resource, List<UserMovie> objects, LayoutInflater inflater) {
 		super(context, resource, objects);
 
+		if (objects == null)
+			throw new IllegalArgumentException("objects");
+
 		_objects = objects;
 		_resource = resource;
 		_inflater = inflater;
@@ -63,7 +66,7 @@ public class MoviesArrayAdapter extends ArrayAdapter<UserMovie> {
 		if (info == null)
 			return view;
 
-		Movie movie = info.getMovie();
+		final Movie movie = info.getMovie();
 
 		TextView name = (TextView) view.findViewById(R.id.tvName);
 		if (name != null)

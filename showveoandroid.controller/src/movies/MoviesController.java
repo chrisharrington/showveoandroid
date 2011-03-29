@@ -1,6 +1,7 @@
 package movies;
 
 import controller.IMoviesController;
+import domain.Movie;
 import model.movies.IMoviesModel;
 import service.event.IEmptyEventHandler;
 import service.event.IParameterizedEventHandler;
@@ -64,6 +65,12 @@ public class MoviesController implements IMoviesController {
 		_view.onGenreChangedHandler(new IParameterizedEventHandler<String>() {
 			public void run(String genre) {
 				_model.loadMoviesForGenre(genre);
+			}
+		});
+
+		_view.onMovieSelected(new IParameterizedEventHandler<Movie>() {
+			public void run(Movie movie) {
+				_model.loadMovieView(movie);
 			}
 		});
 	}

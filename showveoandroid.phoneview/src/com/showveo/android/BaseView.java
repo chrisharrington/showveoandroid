@@ -3,6 +3,7 @@ package com.showveo.android;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import com.showveo.android.main.MainView;
 import com.showveo.android.movies.MoviesView;
 import view.ActivityType;
@@ -26,7 +27,7 @@ public abstract class BaseView extends Activity implements IBaseView {
 	 * Switches to another activity.
 	 * @param type The type of activity.
 	 */
-	public void switchActivity(ActivityType type) {
+	public void loadActivity(ActivityType type) {
 		Intent intent;
 		switch (type) {
 			case Main:
@@ -40,6 +41,19 @@ public abstract class BaseView extends Activity implements IBaseView {
 		}
 
 		startActivity(intent);
+	}
+
+	/**
+	 * Loads the OS-defined movie activity.
+	 * @param url The url of the movie to show.
+	 */
+	public void loadMovieActivity(String url) {
+		if (url == null || url.equals(""))
+			throw new IllegalArgumentException("url");
+
+		Intent movieIntent = new Intent(Intent.ACTION_VIEW);
+		movieIntent.setDataAndType(Uri.parse(url), "video/mp4");
+		startActivity(movieIntent);
 	}
 
 	/**

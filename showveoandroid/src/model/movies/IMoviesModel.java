@@ -1,5 +1,6 @@
 package model.movies;
 
+import domain.Movie;
 import model.IBaseModel;
 import view.movies.IMoviesView;
 
@@ -27,4 +28,10 @@ public interface IMoviesModel extends IBaseModel<IMoviesView> {
 	 * @param genre The genre filter.
 	 */
 	void loadMoviesForGenre(String genre);
+
+	/**
+	 * Loads a movie view.
+	 * @param movie The movie to watch.
+	 */
+	void loadMovieView(Movie movie);
 }

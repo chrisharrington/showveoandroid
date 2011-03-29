@@ -33,7 +33,6 @@ public class MainController implements IMainController {
 		if (model == null)
 			throw new IllegalArgumentException("model");
 
-
 		_model = model;
 	}
 
@@ -74,7 +73,7 @@ public class MainController implements IMainController {
 
 				switch (data)  {
 					case Movies:
-						_view.switchActivity(ActivityType.Movies);
+						_view.loadActivity(ActivityType.Movies);
 						break;
 					case TV:
 						break;

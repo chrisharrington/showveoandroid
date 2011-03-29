@@ -12,10 +12,16 @@ public interface IBaseView {
 	 * Switches to another activity.
 	 * @param type The type of activity.
 	 */
-	void switchActivity(ActivityType type);
+	void loadActivity(ActivityType type);
 
 	/**
-	 * Shows a losding message.
+	 * Loads the OS-defined movie activity.
+	 * @param url The url of the movie to show.
+	 */
+	void loadMovieActivity(String url);
+
+	/**
+	 * Shows a loading message.
 	 * @param message The loading message to show.
 	 */
 	void showLoading(String message);

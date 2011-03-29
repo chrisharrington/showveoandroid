@@ -1,10 +1,9 @@
 package com.showveo.android;
 
 import android.app.TabActivity;
-import android.media.MediaPlayer;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-
-import java.io.IOException;
 
 public class TestView extends TabActivity {
 
@@ -18,14 +17,12 @@ public class TestView extends TabActivity {
         super.onCreate(savedInstanceState);
 		setContentView(R.layout.test);
 
-		try {
-			MediaPlayer player = new MediaPlayer();
-			player.setDataSource("http://68.147.201.165:3000/");
-			player.prepare();
-			player.start();
-		} catch (IOException e) {
+		//String url = "http://www.longtailvideo.com/jw/upload/bunny.mp4";
+		String url = "http://68.147.201.165:3000/test.mp4";
 
-		}
+		Intent tostart = new Intent(Intent.ACTION_VIEW);
+		tostart.setDataAndType(Uri.parse(url), "video/mp4");
+		startActivity(tostart);
     }
 }
 

@@ -26,7 +26,7 @@ public abstract class BaseTabView extends TabActivity implements IBaseView {
 	 * Switches to another activity.
 	 * @param type The type of activity.
 	 */
-	public void switchActivity(ActivityType type) {
+	public void loadActivity(ActivityType type) {
 		Intent intent;
 		switch (type) {
 			case Main:

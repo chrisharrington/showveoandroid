@@ -22,6 +22,7 @@ public class Movie {
 	private List<String> _actors;
 	private String _file;
 	private boolean _isEncoded;
+	private String _url;
 
 	public void setID(String value) { _id = value; }
 	public String getID() { return _id; }
@@ -61,6 +62,9 @@ public class Movie {
 
 	public void isEncoded(boolean value) { _isEncoded = value; }
 	public boolean isEncoded() { return _isEncoded; }
+
+	public void setUrl(String value) { _url = value; }
+	public String getUrl() { return _url; }
 
 	public Movie() {
 		_genres = new ArrayList<Genre>();
