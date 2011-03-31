@@ -1,9 +1,7 @@
 package com.showveo.android;
 
 import android.app.Application;
-import base.Loader;
 import container.IDataStore;
-import container.ILoader;
 
 import java.util.Hashtable;
 import java.util.Map;
@@ -28,9 +26,6 @@ public class ShowveoApplication extends Application implements IDataStore {
 	 */
 	public ShowveoApplication() {
 		_data = new Hashtable<UUID, Object>();
-
-		ILoader loader = new Loader();
-		loader.load(this);
 	}
 
 	//----------------------------------------------------------------------------------------------------------------------------------

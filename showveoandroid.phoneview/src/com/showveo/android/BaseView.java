@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.widget.Toast;
 import com.showveo.android.main.MainView;
 import com.showveo.android.movies.MoviesView;
 import view.ActivityType;
@@ -79,6 +80,14 @@ public abstract class BaseView extends Activity implements IBaseView {
 
 		_loading.dismiss();
 		_loading = null;
+	}
+
+	/**
+	 * Shows a standard message to the user.
+	 * @param message The message to show.
+	 */
+	public void showMessage(String message) {
+		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 	}
 }
 

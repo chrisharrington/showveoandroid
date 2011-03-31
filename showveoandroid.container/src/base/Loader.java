@@ -1,8 +1,9 @@
 package base;
 
+import android.os.Handler;
+import android.os.Message;
 import container.DR;
 import container.IDataStore;
-import container.ILoader;
 import controller.IMainController;
 import controller.IMoviesController;
 import dataaccess.IService;
@@ -22,6 +23,7 @@ import movies.MoviesModel;
 import security.Cryptographer;
 import serialization.DateParser;
 import serialization.Serializer;
+import service.event.IParameterizedEventHandler;
 import service.security.ICryptographer;
 import service.serialization.IDateParser;
 import service.serialization.ISerializer;
@@ -33,13 +35,16 @@ import usermovie.UserMovieRepository;
 /*
  * A class used to load the dependencies for the application.
  */
-public class Loader implements ILoader {
+public class Loader {
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Data Members
 
     //  The location of the remote service.
 	private final static String _remoteLocation = "http://68.147.201.165:3000/";
+
+	//	A flag indicating whether or not the applicatoin is loaded.
+	private static boolean _isLoaded = false;
 	
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
@@ -47,8 +52,39 @@ public class Loader implements ILoader {
 	/*
 	 * Loads all of the required dependencies.
 	 * @param store The main data store.
+	 * @param callback The callback function to execute once the loader has completed loading.
 	 */
-	public void load(IDataStore store) {
+	public static void load(final IDataStore store, final IParameterizedEventHandler<Throwable> callback) {
+		final Handler handler = new Handler() {
+			@Override
+			public void handleMessage(Message msg) {
+
+			}
+		};
+
+		new Thread(new Runnable() {
+			public void run() {
+				try {
+					load(store);
+					callback.run(null);
+				} catch (Exception e) {
+					callback.run(e);
+				}
+			}
+		}).start();
+	}
+
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Private Methods
+
+	/**
+	 * Performs the load operation.
+	 * @param store The main data store.
+	 */
+	public static void load(IDataStore store) {
+		if (_isLoaded)
+			return;
+
 		DR.register(IDataStore.class, store);
 
 		loadService();
@@ -63,10 +99,9 @@ public class Loader implements ILoader {
 
 		ISessionManager sessionManager = DR.get(ISessionManager.class);
 		sessionManager.register(user);
-	}
 
-	//----------------------------------------------------------------------------------------------------------------------------------
-	//	Private Methods
+		_isLoaded = true;
+	}
 
 	/**
 	 * Loads the service components for the application.

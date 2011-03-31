@@ -31,4 +31,10 @@ public interface IBaseView {
 	 */
 	void hideLoading();
 
+	/**
+	 * Shows a standard message to the user.
+	 * @param message The message to show.
+	 */
+	void showMessage(String message);
+
 }

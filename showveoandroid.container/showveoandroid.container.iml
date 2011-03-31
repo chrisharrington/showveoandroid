@@ -13,6 +13,7 @@
     <orderEntry type="module" module-name="showveoandroid.service" />
     <orderEntry type="module" module-name="showveoandroid.model" />
     <orderEntry type="module" module-name="showveoandroid.controller" />
+    <orderEntry type="library" name="Android 2.2 Platform" level="application" />
   </component>
 </module>
 
