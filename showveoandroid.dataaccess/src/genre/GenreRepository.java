@@ -1,11 +1,10 @@
 package genre;
 
-import dataaccess.DataException;
+import base.BaseAsyncTask;
 import dataaccess.IService;
 import dataaccess.genre.IGenreRepository;
-import domain.Genre;
-
-import java.util.List;
+import domain.GenreCollection;
+import service.event.IParameterizedEventHandler;
 
 /**
  * A container for genre information.
@@ -36,11 +35,36 @@ public class GenreRepository implements IGenreRepository {
 	//	Public Methods
 
 	/**
-	 * Retrieves a list of all genres.
-	 * @throws dataaccess.DataException Represents an error that occurs during normal data access operations.
-	 * @return The list of all genres.
+	 * Asynchronously retrieves a list of all genres.
+	 * @param callback The callback function executed once the genres have been retrieved.
 	 */
-	public List<Genre> getAll() throws DataException {
-		return _service.executeList(GenreQueries.getAll());
+	public void getAll(final IParameterizedEventHandler<GenreCollection> callback) {
+		new BaseAsyncTask<Void, Void, GenreCollection>(callback) {
+			@Override
+			protected GenreCollection run(Void... params) {
+				return new GenreCollection(_service.executeList(GenreQueries.getAll()));
+			}
+		}.execute();
+
+//		new AsyncTask<Void, Void, GenreCollection>() {
+//			private Throwable _exception;
+//
+//			@Override
+//			protected GenreCollection doInBackground(Void... voids) {
+//				try {
+//					return new GenreCollection(_service.executeList(GenreQueries.getAll()));
+//				} catch (Exception e) {
+//					_exception = e;
+//					return null;
+//				}
+//			}
+//
+//			@Override
+//			protected void onPostExecute(GenreCollection result) {
+//				if (_exception != null)
+//					_exception.printStackTrace();
+//				callback.run(result, _exception);
+//			}
+//		}.execute();
 	}
 }

@@ -1,9 +1,7 @@
 package dataaccess.genre;
 
-import dataaccess.DataException;
-import domain.Genre;
-
-import java.util.List;
+import domain.GenreCollection;
+import service.event.IParameterizedEventHandler;
 
 /**
  * Defines a container for genre information.
@@ -14,10 +12,8 @@ public interface IGenreRepository {
 	//	Public Methods
 
 	/**
-	 * Retrieves a list of all genres.
-	 * @throws DataException Represents an error that occurs during normal data access operations.
-	 * @return The list of all genres.
+	 * Asynchronously retrieves a list of all genres.
+	 * @param callback The callback function executed once the genres have been retrieved.
 	 */
-	List<Genre> getAll() throws DataException;
-
+	void getAll(IParameterizedEventHandler<GenreCollection> callback);
 }

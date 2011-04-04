@@ -137,7 +137,7 @@ public class Loader {
 
 		LoadMoviesTask loadMoviesTask = new LoadMoviesTask(DR.get(IUserMovieRepository.class));
 		LoadGenresTask loadGenresTask = new LoadGenresTask(DR.get(IGenreRepository.class));
-		DR.register(IMoviesModel.class, new MoviesModel(loadMoviesTask, loadGenresTask, _remoteLocation));
+		DR.register(IMoviesModel.class, new MoviesModel(loadMoviesTask, DR.get(IGenreRepository.class), _remoteLocation));
 		DR.register(IMoviesController.class, new MoviesController(DR.get(IMoviesModel.class)));
 
 		DR.register(IMovieDetailsModel.class, new MovieDetailsModel());

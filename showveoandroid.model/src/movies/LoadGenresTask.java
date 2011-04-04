@@ -1,7 +1,6 @@
 package movies;
 
 import android.os.AsyncTask;
-import dataaccess.DataException;
 import dataaccess.genre.IGenreRepository;
 import domain.GenreCollection;
 import service.event.IParameterizedEventHandler;
@@ -49,12 +48,14 @@ public class LoadGenresTask extends AsyncTask<IParameterizedEventHandler<GenreCo
 
 		_callback = callback[0];
 
-		try {
-			return new GenreCollection(_genreRepository.getAll());
-		} catch (DataException e) {
-			_exception = e;
-			return null;
-		}
+//		try {
+//			return new GenreCollection(_genreRepository.getAll());
+//		} catch (DataException e) {
+//			_exception = e;
+//			return null;
+//		}
+
+		return null;
 	}
 
 	/**

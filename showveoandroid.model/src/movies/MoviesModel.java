@@ -1,9 +1,11 @@
 package movies;
 
 import base.BaseModel;
+import dataaccess.genre.IGenreRepository;
 import domain.*;
 import model.movies.IMoviesModel;
 import service.event.IParameterizedEventHandler;
+import view.ActivityType;
 import view.movies.IMoviesView;
 
 import java.util.Collections;
@@ -26,8 +28,8 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 	//	The task used to load movies asynchronously.
 	private final LoadMoviesTask _loadMoviesTask;
 
-	//	The task used to load genres asynchronously.
-	private final LoadGenresTask _loadGenresTask;
+	//	A container for genre information.
+	private final IGenreRepository _genreRepository;
 
 	//------------------------------------------------------------------------------------------------------------------
 	//	Constructors
@@ -35,19 +37,19 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 	/**
 	 * The default constructor.
 	 * @param loadMoviesTask The task used to load movies asynchronously.
-	 * @param loadGenresTask The task used to load genres asynchronously.
+	 * @param genreRepository A container for genre information.
 	 * @param baseMovieLocation The base movie location.
 	 */
-	public MoviesModel(LoadMoviesTask loadMoviesTask, LoadGenresTask loadGenresTask, String baseMovieLocation) {
+	public MoviesModel(LoadMoviesTask loadMoviesTask, IGenreRepository genreRepository, String baseMovieLocation) {
 		if (loadMoviesTask == null)
 			throw new IllegalArgumentException("loadMoviesTask");
-		if (loadGenresTask == null)
-			throw new IllegalArgumentException("loadGenresTask");
+		if (genreRepository == null)
+			throw new IllegalArgumentException("genreRepository");
 		if (baseMovieLocation == null || baseMovieLocation.equals(""))
 			throw new IllegalArgumentException("baseMovieLocation");
 
+		_genreRepository = genreRepository;
 		_loadMoviesTask = loadMoviesTask;
-		_loadGenresTask = loadGenresTask;
 		_baseMovieLocation = baseMovieLocation;
 	}
 
@@ -68,11 +70,18 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 			}
 		});
 
-		_loadGenresTask.execute(new IParameterizedEventHandler<GenreCollection>() {
+		_genreRepository.getAll(new IParameterizedEventHandler<GenreCollection>() {
 			public void run(GenreCollection genres, Throwable... error) {
-				_genres = genres;
-				if (_movies != null)
-					onMoviesAndGenresLoaded(_movies, _genres);
+				if (error.length > 0 && error[0] != null) {
+					_view.showErrorMessage("An error has occurred while retrieving the genre list.");
+					_view.hideLoading();
+					_view.loadActivity(ActivityType.Main);
+				}
+				else {
+					_genres = genres;
+					if (_movies != null)
+						onMoviesAndGenresLoaded(_movies, _genres);
+				}
 			}
 		});
 	}
