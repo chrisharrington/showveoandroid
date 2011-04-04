@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.widget.Toast;
 import com.showveo.android.main.MainView;
 import com.showveo.android.movies.MoviesView;
+import service.event.IEmptyEventHandler;
 import view.ActivityType;
 import view.IBaseView;
 
@@ -21,8 +23,24 @@ public abstract class BaseView extends Activity implements IBaseView {
 	//	The progress dialog for the loading message.
 	private ProgressDialog _loading;
 
+	//	The load event handler.  Fired after the view loads.
+	private IEmptyEventHandler _onLoad;
+
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
+
+	/**
+	 * Called when this ActivityType is first created.
+	 * @param savedInstanceState Any saved instance state information.
+	 */
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+		super.onCreate(savedInstanceState);
+
+		if(_onLoad != null)
+			_onLoad.run();
+    }
 
 	/**
 	 * Switches to another activity.
@@ -88,6 +106,20 @@ public abstract class BaseView extends Activity implements IBaseView {
 	 */
 	public void showMessage(String message) {
 		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+	}
+
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Event Handlers
+
+	/**
+	 * Fired after the view has loaded.
+	 * @param handler The event handler.
+	 */
+	public void onLoadHandler(IEmptyEventHandler handler) {
+		if (handler == null)
+			throw new IllegalArgumentException("handler");
+
+		_onLoad = handler;
 	}
 }
 

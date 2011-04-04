@@ -1,5 +1,7 @@
 package view;
 
+import service.event.IEmptyEventHandler;
+
 /**
  * Defines a base view.
  */
@@ -36,5 +38,14 @@ public interface IBaseView {
 	 * @param message The message to show.
 	 */
 	void showMessage(String message);
+
+	//----------------------------------------------------------------------------------------------------------------------------------
+	//	Event Handlers
+
+	/**
+	 * Fired after the view has loaded.
+	 * @param handler The event handler.
+	 */
+	void onLoadHandler(IEmptyEventHandler handler);
 
 }

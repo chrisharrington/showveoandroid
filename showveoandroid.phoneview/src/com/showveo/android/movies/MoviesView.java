@@ -12,7 +12,6 @@ import com.showveo.android.R;
 import container.DR;
 import controller.IMoviesController;
 import domain.*;
-import service.event.IEmptyEventHandler;
 import service.event.IParameterizedEventHandler;
 import view.movies.IMoviesView;
 
@@ -28,9 +27,6 @@ public class MoviesView extends BaseView implements IMoviesView {
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Data Members
-
-	//	The load event handler.  Fired after the view loads.
-	private IEmptyEventHandler _onLoad;
 
 	//	The genre changed event handler.  Fired after the user changes the genre.
 	private IParameterizedEventHandler<String> _onGenreChanged;
@@ -81,9 +77,6 @@ public class MoviesView extends BaseView implements IMoviesView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.movies);
 		setTitle("Movies");
-
-		if (_onLoad != null)
-			_onLoad.run();
     }
 
 	/**
@@ -227,17 +220,6 @@ public class MoviesView extends BaseView implements IMoviesView {
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Event Handlers
-
-	/**
-	 * Fired after the view has loaded.
-	 * @param handler The event handler.
-	 */
-	public void onLoadHandler(IEmptyEventHandler handler) {
-		if (handler == null)
-			throw new IllegalArgumentException("handler");
-
-		_onLoad = handler;
-	}
 
 	/**
 	 * Fired after the user changes the genre.

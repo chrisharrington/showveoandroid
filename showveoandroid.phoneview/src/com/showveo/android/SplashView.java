@@ -52,7 +52,6 @@ public class SplashView extends BaseView {
 				if (text != null) {
 					text.setText("An error has occurred during application initialization.  Sorry!");
 					text.setTextColor(Color.RED);
-					//text.setGravity(Gravity.LEFT);
 				}
 				return;
 			}

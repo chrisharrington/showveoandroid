@@ -5,6 +5,7 @@ import android.os.Message;
 import container.DR;
 import container.IDataStore;
 import controller.IMainController;
+import controller.IMovieDetailsController;
 import controller.IMoviesController;
 import dataaccess.IService;
 import dataaccess.genre.IGenreRepository;
@@ -16,8 +17,11 @@ import main.MainController;
 import main.MainModel;
 import model.IMainModel;
 import model.movies.ILoadMoviesRunner;
+import model.movies.IMovieDetailsModel;
 import model.movies.IMoviesModel;
+import moviedetails.MovieDetailsModel;
 import movies.LoadMoviesRunner;
+import movies.MovieDetailsController;
 import movies.MoviesController;
 import movies.MoviesModel;
 import security.Cryptographer;
@@ -66,6 +70,7 @@ public class Loader {
 			public void run() {
 				try {
 					load(store);
+					handler.sendEmptyMessage(0);
 					callback.run(null);
 				} catch (Exception e) {
 					callback.run(e);
@@ -137,6 +142,9 @@ public class Loader {
 		DR.register(ILoadMoviesRunner.class, new LoadMoviesRunner(DR.get(IDataStore.class), DR.get(IUserMovieRepository.class), DR.get(IGenreRepository.class)));
 		DR.register(IMoviesModel.class, new MoviesModel(DR.get(ILoadMoviesRunner.class), _remoteLocation));
 		DR.register(IMoviesController.class, new MoviesController(DR.get(IMoviesModel.class)));
+
+		DR.register(IMovieDetailsModel.class, new MovieDetailsModel());
+		DR.register(IMovieDetailsController.class, new MovieDetailsController(DR.get(IMovieDetailsModel.class)));
 	}
 
 }

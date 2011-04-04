@@ -4,7 +4,6 @@ import domain.GenreCollection;
 import domain.Movie;
 import domain.UserMovie;
 import domain.UserMovieCollection;
-import service.event.IEmptyEventHandler;
 import service.event.IParameterizedEventHandler;
 import view.IBaseView;
 
@@ -41,12 +40,6 @@ public interface IMoviesView extends IBaseView {
 
 	//----------------------------------------------------------------------------------------------------------------------------------
 	//	Event Handlers
-
-	/**
-	 * Fired after the view has loaded.
-	 * @param handler The event handler.
-	 */
-	void onLoadHandler(IEmptyEventHandler handler);
 
 	/**
 	 * Fired after the user changes the genre.
