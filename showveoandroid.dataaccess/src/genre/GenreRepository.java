@@ -1,5 +1,6 @@
 package genre;
 
+import dataaccess.DataException;
 import dataaccess.IService;
 import dataaccess.genre.IGenreRepository;
 import domain.Genre;
@@ -11,13 +12,13 @@ import java.util.List;
  */
 public class GenreRepository implements IGenreRepository {
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Data Members
 
 	//	The remote container for information.
 	IService _service;
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Constructors
 
 	/**
@@ -31,14 +32,15 @@ public class GenreRepository implements IGenreRepository {
 		_service = service;
 	}
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
 
 	/**
 	 * Retrieves a list of all genres.
+	 * @throws dataaccess.DataException Represents an error that occurs during normal data access operations.
 	 * @return The list of all genres.
 	 */
-	public List<Genre> getAll() {
+	public List<Genre> getAll() throws DataException {
 		return _service.executeList(GenreQueries.getAll());
 	}
 }

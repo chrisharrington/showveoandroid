@@ -12,7 +12,7 @@ import view.movies.IMoviesView;
  */
 public class MoviesController implements IMoviesController {
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Data Members
 
 	//	The model containing the state of the movie list page.
@@ -21,7 +21,7 @@ public class MoviesController implements IMoviesController {
 	//	The view for to be controlled.
 	private IMoviesView _view;
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Constructors
 
 	/**
@@ -49,7 +49,7 @@ public class MoviesController implements IMoviesController {
 		loadHandlers();
 	}
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Private Methods
 
 	/**
@@ -63,13 +63,13 @@ public class MoviesController implements IMoviesController {
 		});
 
 		_view.onGenreChangedHandler(new IParameterizedEventHandler<String>() {
-			public void run(String genre) {
+			public void run(String genre, Throwable... error) {
 				_model.loadMoviesForGenre(genre);
 			}
 		});
 
 		_view.onMovieSelected(new IParameterizedEventHandler<Movie>() {
-			public void run(Movie movie) {
+			public void run(Movie movie, Throwable... error) {
 				_model.loadMovieView(movie);
 			}
 		});

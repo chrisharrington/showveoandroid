@@ -9,7 +9,7 @@ import view.moviedetails.IMovieDetailsView;
  */
 public class MovieDetailsController implements IMovieDetailsController {
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Data Members
 
 	//	The view for this controller.
@@ -18,7 +18,7 @@ public class MovieDetailsController implements IMovieDetailsController {
 	//	The model used by the controller to retreive state information.
 	private final IMovieDetailsModel _model;
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Constructors
 
 	/**
@@ -32,7 +32,7 @@ public class MovieDetailsController implements IMovieDetailsController {
 		_model = model;
 	}
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
 
 	/**

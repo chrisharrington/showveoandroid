@@ -25,7 +25,7 @@ import java.util.Map;
  */
 public class MoviesView extends BaseView implements IMoviesView {
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Data Members
 
 	//	The genre changed event handler.  Fired after the user changes the genre.
@@ -40,7 +40,7 @@ public class MoviesView extends BaseView implements IMoviesView {
 	//	The dictionary of map items, referenced by name.
 	private final Map<String, Tab> _tabs;
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Constructors
 
 	/**
@@ -62,7 +62,7 @@ public class MoviesView extends BaseView implements IMoviesView {
 		this(DR.get(IMoviesController.class));
 	}
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Overridden Methods
 
 	/**
@@ -126,7 +126,7 @@ public class MoviesView extends BaseView implements IMoviesView {
 		return super.onMenuItemSelected(featureId, item);
 	}
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
 
 	/**
@@ -218,7 +218,7 @@ public class MoviesView extends BaseView implements IMoviesView {
 		list.setAdapter(new MoviesArrayAdapter(this, R.layout.movielistview, movies, (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)));
 	}
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Event Handlers
 
 	/**
@@ -243,7 +243,7 @@ public class MoviesView extends BaseView implements IMoviesView {
 		_onMovieSelected = handler;
 	}
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Tab Class
 
 	/**

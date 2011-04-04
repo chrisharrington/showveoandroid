@@ -17,7 +17,7 @@ import view.IBaseView;
  */
 public abstract class BaseView extends Activity implements IBaseView {
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Data Members
 
 	//	The progress dialog for the loading message.
@@ -26,7 +26,7 @@ public abstract class BaseView extends Activity implements IBaseView {
 	//	The load event handler.  Fired after the view loads.
 	private IEmptyEventHandler _onLoad;
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
 
 	/**
@@ -108,7 +108,15 @@ public abstract class BaseView extends Activity implements IBaseView {
 		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
 	}
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	/**
+	 * Shows an error message to the user.
+	 * @param message The error message.
+	 */
+	public void showErrorMessage(String message) {
+		showMessage(message);
+	}
+
+	//------------------------------------------------------------------------------------------------------------------
 	//	Event Handlers
 
 	/**

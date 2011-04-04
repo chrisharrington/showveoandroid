@@ -1,5 +1,6 @@
 package dataaccess.genre;
 
+import dataaccess.DataException;
 import domain.Genre;
 
 import java.util.List;
@@ -9,13 +10,14 @@ import java.util.List;
  */
 public interface IGenreRepository {
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
 
 	/**
 	 * Retrieves a list of all genres.
+	 * @throws DataException Represents an error that occurs during normal data access operations.
 	 * @return The list of all genres.
 	 */
-	List<Genre> getAll();
+	List<Genre> getAll() throws DataException;
 
 }

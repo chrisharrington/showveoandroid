@@ -5,13 +5,14 @@ package service.event;
  */
 public interface IParameterizedEventHandler<T> {
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
 
 	/**
 	 * Runs the event handler.
 	 * @param data Any event data.
+	 * @param error An optional error.
 	 */
-	void run(T data);
+	void run(T data, Throwable... error);
 
 }

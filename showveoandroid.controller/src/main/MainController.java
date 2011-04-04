@@ -13,7 +13,7 @@ import view.main.MainMenuType;
  */
 public class MainController implements IMainController {
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Data Members
 
 	//	The model for the main page.
@@ -22,7 +22,7 @@ public class MainController implements IMainController {
 	//	The view for the main page.
 	private IMainView _view;
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Constructors
 
 	/**
@@ -36,7 +36,7 @@ public class MainController implements IMainController {
 		_model = model;
 	}
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
 
 	/**
@@ -53,7 +53,7 @@ public class MainController implements IMainController {
 		loadHandlers();
 	}
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Private Methods
 
 	/**
@@ -67,7 +67,7 @@ public class MainController implements IMainController {
 		});
 
 		_view.onMenuItemSelectedHandler(new IParameterizedEventHandler<MainMenuType>() {
-			public void run(MainMenuType data) {
+			public void run(MainMenuType data, Throwable... error) {
 				if (data == null)
 					throw new IllegalArgumentException("data");
 

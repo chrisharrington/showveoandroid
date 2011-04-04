@@ -16,14 +16,10 @@ import genre.GenreRepository;
 import main.MainController;
 import main.MainModel;
 import model.IMainModel;
-import model.movies.ILoadMoviesRunner;
 import model.movies.IMovieDetailsModel;
 import model.movies.IMoviesModel;
 import moviedetails.MovieDetailsModel;
-import movies.LoadMoviesRunner;
-import movies.MovieDetailsController;
-import movies.MoviesController;
-import movies.MoviesModel;
+import movies.*;
 import security.Cryptographer;
 import serialization.DateParser;
 import serialization.Serializer;
@@ -41,7 +37,7 @@ import usermovie.UserMovieRepository;
  */
 public class Loader {
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Data Members
 
     //  The location of the remote service.
@@ -50,7 +46,7 @@ public class Loader {
 	//	A flag indicating whether or not the applicatoin is loaded.
 	private static boolean _isLoaded = false;
 	
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
 	
 	/*
@@ -79,7 +75,7 @@ public class Loader {
 		}).start();
 	}
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Private Methods
 
 	/**
@@ -139,8 +135,9 @@ public class Loader {
 		DR.register(IMainModel.class, new MainModel());
 		DR.register(IMainController.class, new MainController(DR.get(IMainModel.class)));
 
-		DR.register(ILoadMoviesRunner.class, new LoadMoviesRunner(DR.get(IDataStore.class), DR.get(IUserMovieRepository.class), DR.get(IGenreRepository.class)));
-		DR.register(IMoviesModel.class, new MoviesModel(DR.get(ILoadMoviesRunner.class), _remoteLocation));
+		LoadMoviesTask loadMoviesTask = new LoadMoviesTask(DR.get(IUserMovieRepository.class));
+		LoadGenresTask loadGenresTask = new LoadGenresTask(DR.get(IGenreRepository.class));
+		DR.register(IMoviesModel.class, new MoviesModel(loadMoviesTask, loadGenresTask, _remoteLocation));
 		DR.register(IMoviesController.class, new MoviesController(DR.get(IMoviesModel.class)));
 
 		DR.register(IMovieDetailsModel.class, new MovieDetailsModel());

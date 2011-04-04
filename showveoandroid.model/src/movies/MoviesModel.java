@@ -1,9 +1,7 @@
 package movies;
 
 import base.BaseModel;
-import container.IContainer;
 import domain.*;
-import model.movies.ILoadMoviesRunner;
 import model.movies.IMoviesModel;
 import service.event.IParameterizedEventHandler;
 import view.movies.IMoviesView;
@@ -13,11 +11,8 @@ import java.util.Comparator;
 
 public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel {
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Data Members
-
-	//	Loads the movie and genre collections.
-	private final ILoadMoviesRunner _loadMoviesRunner;
 
 	//	The retrieved user-movie information collection.
 	private UserMovieCollection _movies;
@@ -28,25 +23,35 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 	//	The base movie location.
 	private final String _baseMovieLocation;
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//	The task used to load movies asynchronously.
+	private final LoadMoviesTask _loadMoviesTask;
+
+	//	The task used to load genres asynchronously.
+	private final LoadGenresTask _loadGenresTask;
+
+	//------------------------------------------------------------------------------------------------------------------
 	//	Constructors
 
 	/**
 	 * The default constructor.
-	 * @param loadMoviesRunner Loads the movie and genre collections.
+	 * @param loadMoviesTask The task used to load movies asynchronously.
+	 * @param loadGenresTask The task used to load genres asynchronously.
 	 * @param baseMovieLocation The base movie location.
 	 */
-	public MoviesModel(ILoadMoviesRunner loadMoviesRunner, String baseMovieLocation) {
-		if (loadMoviesRunner == null)
-			throw new IllegalArgumentException("loadMoviesRunner");
+	public MoviesModel(LoadMoviesTask loadMoviesTask, LoadGenresTask loadGenresTask, String baseMovieLocation) {
+		if (loadMoviesTask == null)
+			throw new IllegalArgumentException("loadMoviesTask");
+		if (loadGenresTask == null)
+			throw new IllegalArgumentException("loadGenresTask");
 		if (baseMovieLocation == null || baseMovieLocation.equals(""))
 			throw new IllegalArgumentException("baseMovieLocation");
 
-		_loadMoviesRunner = loadMoviesRunner;
+		_loadMoviesTask = loadMoviesTask;
+		_loadGenresTask = loadGenresTask;
 		_baseMovieLocation = baseMovieLocation;
 	}
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
 
 	/**
@@ -55,18 +60,19 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 	public void loadMovies() {
 		_view.showLoading("Loading movies...");
 
-		_loadMoviesRunner.run(new IParameterizedEventHandler<IContainer>() {
-			public void run(IContainer data) {
-				_movies = data.get(UserMovieCollection.class);
-				_genres = data.get(GenreCollection.class);
+		_loadMoviesTask.execute(new IParameterizedEventHandler<UserMovieCollection>() {
+			public void run(UserMovieCollection movies, Throwable... error) {
+				_movies = movies;
+				if (_genres != null)
+					onMoviesAndGenresLoaded(_movies, _genres);
+			}
+		});
 
-				Collections.sort(_movies, new NameSorter());
-
-				_view.hideLoading();
-				_view.setMovieCollectionByName("recent", "Recent", deriveRecent(_movies));
-				_view.setMovieCollectionByName("favorites", "Favorites", deriveFavorites(_movies));
-				_view.setGenreMovies(_genres, deriveGenres(_movies, _genres.get(0)));
-				_view.setMovieCollectionByName("all", "All", _movies);
+		_loadGenresTask.execute(new IParameterizedEventHandler<GenreCollection>() {
+			public void run(GenreCollection genres, Throwable... error) {
+				_genres = genres;
+				if (_movies != null)
+					onMoviesAndGenresLoaded(_movies, _genres);
 			}
 		});
 	}
@@ -93,7 +99,29 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 		_view.loadMovieActivity(_baseMovieLocation + movie.getUrl());
 	}
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
+	//	Event Handlers
+
+	/**
+	 * Fired after both the movie and genre collections have been loaded.  Stores the data, then sends it back to the
+	 * view.
+	 * @param movies The retrieved movie collection.
+	 * @param genres The retrieve genre collection.
+	 */
+	private void onMoviesAndGenresLoaded(UserMovieCollection movies, GenreCollection genres) {
+		Collections.sort(movies, new NameSorter());
+
+		_view.setMovieCollectionByName("recent", "Recent", deriveRecent(movies));
+		_view.setMovieCollectionByName("favorites", "Favorites", deriveFavorites(movies));
+		_view.setGenreMovies(_genres, deriveGenres(movies, genres.get(0)));
+		_view.setMovieCollectionByName("all", "All", movies);
+		_view.hideLoading();
+
+		_movies = movies;
+		_genres = genres;
+	}
+
+	//------------------------------------------------------------------------------------------------------------------
 	//	Private Methods
 
 	/**
@@ -145,7 +173,7 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 		return favorites;
 	}
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	DateSorter Class
 
 	/**

@@ -3,7 +3,6 @@ package com.showveo.android;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.widget.TextView;
 import base.Loader;
 import container.IDataStore;
@@ -14,7 +13,7 @@ import view.ActivityType;
  */
 public class SplashView extends BaseView {
 
-	//----------------------------------------------------------------------------------------------------------------------------------
+	//------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
 
 	/**
@@ -26,7 +25,6 @@ public class SplashView extends BaseView {
 		super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-		IDataStore store = (IDataStore) getApplication();
 		new LoadApplicationTask().execute((IDataStore) getApplication());
 	}
 
