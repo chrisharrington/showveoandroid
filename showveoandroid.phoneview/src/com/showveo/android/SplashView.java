@@ -38,8 +38,8 @@ public class SplashView extends BaseView {
 			try {
 				Loader.load(stores[0]);
 				return null;
-			} catch (Exception e) {
-				return e;
+			} catch (Throwable t) {
+				return t;
 			}
 		}
 
