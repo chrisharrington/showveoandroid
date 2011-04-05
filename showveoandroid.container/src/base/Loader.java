@@ -1,7 +1,5 @@
 package base;
 
-import android.os.Handler;
-import android.os.Message;
 import container.DR;
 import container.IDataStore;
 import controller.IMainController;
@@ -19,11 +17,12 @@ import model.IMainModel;
 import model.movies.IMovieDetailsModel;
 import model.movies.IMoviesModel;
 import moviedetails.MovieDetailsModel;
-import movies.*;
+import movies.MovieDetailsController;
+import movies.MoviesController;
+import movies.MoviesModel;
 import security.Cryptographer;
 import serialization.DateParser;
 import serialization.Serializer;
-import service.event.IParameterizedEventHandler;
 import service.security.ICryptographer;
 import service.serialization.IDateParser;
 import service.serialization.ISerializer;
@@ -54,34 +53,6 @@ public class Loader {
 	 * @param store The main data store.
 	 * @param callback The callback function to execute once the loader has completed loading.
 	 */
-	public static void load(final IDataStore store, final IParameterizedEventHandler<Throwable> callback) {
-		final Handler handler = new Handler() {
-			@Override
-			public void handleMessage(Message msg) {
-
-			}
-		};
-
-		new Thread(new Runnable() {
-			public void run() {
-				try {
-					load(store);
-					handler.sendEmptyMessage(0);
-					callback.run(null);
-				} catch (Exception e) {
-					callback.run(e);
-				}
-			}
-		}).start();
-	}
-
-	//------------------------------------------------------------------------------------------------------------------
-	//	Private Methods
-
-	/**
-	 * Performs the load operation.
-	 * @param store The main data store.
-	 */
 	public static void load(IDataStore store) {
 		if (_isLoaded)
 			return;
@@ -103,6 +74,9 @@ public class Loader {
 
 		_isLoaded = true;
 	}
+
+	//------------------------------------------------------------------------------------------------------------------
+	//	Private Methods
 
 	/**
 	 * Loads the service components for the application.
@@ -135,9 +109,7 @@ public class Loader {
 		DR.register(IMainModel.class, new MainModel());
 		DR.register(IMainController.class, new MainController(DR.get(IMainModel.class)));
 
-		LoadMoviesTask loadMoviesTask = new LoadMoviesTask(DR.get(IUserMovieRepository.class));
-		LoadGenresTask loadGenresTask = new LoadGenresTask(DR.get(IGenreRepository.class));
-		DR.register(IMoviesModel.class, new MoviesModel(loadMoviesTask, DR.get(IGenreRepository.class), _remoteLocation));
+		DR.register(IMoviesModel.class, new MoviesModel(DR.get(IGenreRepository.class), _remoteLocation));
 		DR.register(IMoviesController.class, new MoviesController(DR.get(IMoviesModel.class)));
 
 		DR.register(IMovieDetailsModel.class, new MovieDetailsModel());

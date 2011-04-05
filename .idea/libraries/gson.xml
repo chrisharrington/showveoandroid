@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="gson">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/showveoandroid.service/res/gson-1.6.jar!/" />
+    </SOURCES>
+  </library>
+</component>

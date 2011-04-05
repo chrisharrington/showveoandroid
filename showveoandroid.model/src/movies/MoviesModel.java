@@ -25,9 +25,6 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 	//	The base movie location.
 	private final String _baseMovieLocation;
 
-	//	The task used to load movies asynchronously.
-	private final LoadMoviesTask _loadMoviesTask;
-
 	//	A container for genre information.
 	private final IGenreRepository _genreRepository;
 
@@ -36,20 +33,16 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 
 	/**
 	 * The default constructor.
-	 * @param loadMoviesTask The task used to load movies asynchronously.
 	 * @param genreRepository A container for genre information.
 	 * @param baseMovieLocation The base movie location.
 	 */
-	public MoviesModel(LoadMoviesTask loadMoviesTask, IGenreRepository genreRepository, String baseMovieLocation) {
-		if (loadMoviesTask == null)
-			throw new IllegalArgumentException("loadMoviesTask");
+	public MoviesModel(IGenreRepository genreRepository, String baseMovieLocation) {
 		if (genreRepository == null)
 			throw new IllegalArgumentException("genreRepository");
 		if (baseMovieLocation == null || baseMovieLocation.equals(""))
 			throw new IllegalArgumentException("baseMovieLocation");
 
 		_genreRepository = genreRepository;
-		_loadMoviesTask = loadMoviesTask;
 		_baseMovieLocation = baseMovieLocation;
 	}
 
@@ -62,13 +55,13 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 	public void loadMovies() {
 		_view.showLoading("Loading movies...");
 
-		_loadMoviesTask.execute(new IParameterizedEventHandler<UserMovieCollection>() {
-			public void run(UserMovieCollection movies, Throwable... error) {
-				_movies = movies;
-				if (_genres != null)
-					onMoviesAndGenresLoaded(_movies, _genres);
-			}
-		});
+//		_loadMoviesTask.execute(new IParameterizedEventHandler<UserMovieCollection>() {
+//			public void run(UserMovieCollection movies, Throwable... error) {
+//				_movies = movies;
+//				if (_genres != null)
+//					onMoviesAndGenresLoaded(_movies, _genres);
+//			}
+//		});
 
 		_genreRepository.getAll(new IParameterizedEventHandler<GenreCollection>() {
 			public void run(GenreCollection genres, Throwable... error) {
