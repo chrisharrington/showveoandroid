@@ -109,7 +109,7 @@ public class Loader {
 		DR.register(IMainModel.class, new MainModel());
 		DR.register(IMainController.class, new MainController(DR.get(IMainModel.class)));
 
-		DR.register(IMoviesModel.class, new MoviesModel(DR.get(IGenreRepository.class), _remoteLocation));
+		DR.register(IMoviesModel.class, new MoviesModel(DR.get(IUserMovieRepository.class), DR.get(IGenreRepository.class), _remoteLocation));
 		DR.register(IMoviesController.class, new MoviesController(DR.get(IMoviesModel.class)));
 
 		DR.register(IMovieDetailsModel.class, new MovieDetailsModel());

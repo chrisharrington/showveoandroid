@@ -1,9 +1,7 @@
 package dataaccess.usermovie;
 
-import dataaccess.DataException;
-import domain.UserMovie;
-
-import java.util.List;
+import domain.UserMovieCollection;
+import service.event.IParameterizedEventHandler;
 
 /**
  * Defines a container for user-movie information.
@@ -15,9 +13,8 @@ public interface IUserMovieRepository {
 
 	/**
 	 * Retrieves a collection of user-movie information objects by user.
-	 * @throws DataException Occurs when the operation cannot be completed.
-	 * @return	The retrieved collection of user-movie information objects.
+     * @param callback The callback function to execute with the retrieved user-movie information.
 	 */
-	List<UserMovie> getAll() throws DataException;
+	void getAll(IParameterizedEventHandler<UserMovieCollection> callback);
 
 }

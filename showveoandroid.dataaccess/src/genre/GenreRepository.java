@@ -45,26 +45,5 @@ public class GenreRepository implements IGenreRepository {
 				return new GenreCollection(_service.executeList(GenreQueries.getAll()));
 			}
 		}.execute();
-
-//		new AsyncTask<Void, Void, GenreCollection>() {
-//			private Throwable _exception;
-//
-//			@Override
-//			protected GenreCollection doInBackground(Void... voids) {
-//				try {
-//					return new GenreCollection(_service.executeList(GenreQueries.getAll()));
-//				} catch (Exception e) {
-//					_exception = e;
-//					return null;
-//				}
-//			}
-//
-//			@Override
-//			protected void onPostExecute(GenreCollection result) {
-//				if (_exception != null)
-//					_exception.printStackTrace();
-//				callback.run(result, _exception);
-//			}
-//		}.execute();
 	}
 }

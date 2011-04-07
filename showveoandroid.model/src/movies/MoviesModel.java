@@ -2,6 +2,7 @@ package movies;
 
 import base.BaseModel;
 import dataaccess.genre.IGenreRepository;
+import dataaccess.usermovie.IUserMovieRepository;
 import domain.*;
 import model.movies.IMoviesModel;
 import service.event.IParameterizedEventHandler;
@@ -28,20 +29,27 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 	//	A container for genre information.
 	private final IGenreRepository _genreRepository;
 
+    //  A contianer for user-movie information.
+    private final IUserMovieRepository _userMovieRepository;
+
 	//------------------------------------------------------------------------------------------------------------------
 	//	Constructors
 
 	/**
 	 * The default constructor.
+     * @param userMovieRepository A container for user-movie information.
 	 * @param genreRepository A container for genre information.
 	 * @param baseMovieLocation The base movie location.
 	 */
-	public MoviesModel(IGenreRepository genreRepository, String baseMovieLocation) {
+	public MoviesModel(IUserMovieRepository userMovieRepository, IGenreRepository genreRepository, String baseMovieLocation) {
+        if (userMovieRepository == null)
+            throw new IllegalArgumentException("userMovieRepository");
 		if (genreRepository == null)
 			throw new IllegalArgumentException("genreRepository");
 		if (baseMovieLocation == null || baseMovieLocation.equals(""))
 			throw new IllegalArgumentException("baseMovieLocation");
 
+        _userMovieRepository = userMovieRepository;
 		_genreRepository = genreRepository;
 		_baseMovieLocation = baseMovieLocation;
 	}
@@ -55,13 +63,19 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 	public void loadMovies() {
 		_view.showLoading("Loading movies...");
 
-//		_loadMoviesTask.execute(new IParameterizedEventHandler<UserMovieCollection>() {
-//			public void run(UserMovieCollection movies, Throwable... error) {
-//				_movies = movies;
-//				if (_genres != null)
-//					onMoviesAndGenresLoaded(_movies, _genres);
-//			}
-//		});
+        _userMovieRepository.getAll(new IParameterizedEventHandler<UserMovieCollection>() {
+            public void run(UserMovieCollection data, Throwable... error) {
+                if (error.length > 0 && error[0] != null) {
+                    _view.showErrorMessage("An error has occurred while retrieving the user-movie information list.");
+                    _view.hideLoading();
+                    _view.loadActivity(ActivityType.Main);
+                }
+                else {
+                    _movies = data;
+                    onMoviesAndGenresLoaded(_movies, _genres);
+                }
+            }
+        });
 
 		_genreRepository.getAll(new IParameterizedEventHandler<GenreCollection>() {
 			public void run(GenreCollection genres, Throwable... error) {
@@ -72,8 +86,7 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 				}
 				else {
 					_genres = genres;
-					if (_movies != null)
-						onMoviesAndGenresLoaded(_movies, _genres);
+				    onMoviesAndGenresLoaded(_movies, _genres);
 				}
 			}
 		});
@@ -111,6 +124,9 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 	 * @param genres The retrieve genre collection.
 	 */
 	private void onMoviesAndGenresLoaded(UserMovieCollection movies, GenreCollection genres) {
+        if (movies == null || genres == null)
+            return;
+
 		Collections.sort(movies, new NameSorter());
 
 		_view.setMovieCollectionByName("recent", "Recent", deriveRecent(movies));

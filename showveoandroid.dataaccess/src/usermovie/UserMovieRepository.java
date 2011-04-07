@@ -1,10 +1,10 @@
 package usermovie;
 
+import base.BaseAsyncTask;
 import dataaccess.IService;
 import dataaccess.usermovie.IUserMovieRepository;
-import domain.UserMovie;
-
-import java.util.List;
+import domain.UserMovieCollection;
+import service.event.IParameterizedEventHandler;
 
 /**
  * A container for user-movie information.
@@ -35,13 +35,16 @@ public class UserMovieRepository implements IUserMovieRepository {
 	//------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
 
-	/**
+    /**
 	 * Retrieves a collection of user-movie information objects by user.
-	 *
-	 * @return The retrieved collection of user-movie information objects.
+     * @param callback The callback function to execute with the retrieved user-movie information.
 	 */
-	public List<UserMovie> getAll() {
-		return _service.executeList(UserMovieQueries.getAllByUser());
-	}
-
+    public void getAll(IParameterizedEventHandler<UserMovieCollection> callback) {
+        new BaseAsyncTask<Void, Void, UserMovieCollection>(callback) {
+            @Override
+            protected UserMovieCollection run(Void... params) {
+                return new UserMovieCollection(_service.executeList(UserMovieQueries.getAllByUser()));
+            }
+        }.execute();
+    }
 }
