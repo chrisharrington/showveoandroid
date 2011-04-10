@@ -1,7 +1,6 @@
 package com.showveo.android.main;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,7 +9,6 @@ import com.showveo.android.BaseView;
 import com.showveo.android.R;
 import container.DR;
 import controller.IMainController;
-import service.event.IEmptyEventHandler;
 import service.event.IParameterizedEventHandler;
 import view.main.IMainMenuItem;
 import view.main.IMainView;
@@ -26,9 +24,6 @@ public class MainView extends BaseView implements IMainView
 
 	//	The controller used to handle view events.
 	private final IMainController _controller;
-
-	//	The load event handler.  Fired when the activity loads.
-	private IEmptyEventHandler _onLoad;
 
 	//	The menu item selected handler.  Fired when the user clicks on a menu item.
 	private IParameterizedEventHandler<MainMenuType> _onMenuItemSelected;
@@ -58,18 +53,14 @@ public class MainView extends BaseView implements IMainView
 	//	Public Methods
 
     /**
-	 * Called when the activity is first created.
-	 */
+     * Called during the onCreate method of the activity, before the onLoad handler is fired.
+     * @param arg Any arguments passed from the calling activity.
+     */
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-		_controller.registerView(this);
+    protected void run(Object arg) {
+        _controller.registerView(this);
 
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
-		if (_onLoad != null)
-			_onLoad.run();
     }
 
 	/**
@@ -77,8 +68,6 @@ public class MainView extends BaseView implements IMainView
 	 * @param items The list of menu entries.
 	 */
 	public void setMenuEntries(final List<IMainMenuItem> items) {
-		final Context context = this;
-
 		ListView list = (ListView) findViewById(R.id.lvMain);
 		list.setAdapter(new MainMenuItemArrayAdapter(this, R.layout.mainlistview, items, (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)));
 		list.setOnItemClickListener(new ListView.OnItemClickListener() {
@@ -90,18 +79,7 @@ public class MainView extends BaseView implements IMainView
 	}
 
 	//------------------------------------------------------------------------------------------------------------------
-	//	Events
-
-	/**
-	 * Fired after the view has loaded.
-	 * @param handler The event handler.
-	 */
-	public void onLoadHandler(IEmptyEventHandler handler) {
-		if (handler == null)
-			throw new IllegalArgumentException("handler");
-
-		_onLoad = handler;
-	}
+	//	Event Handlers
 
 	/**
 	 * Fired after the user has selected a menu item.

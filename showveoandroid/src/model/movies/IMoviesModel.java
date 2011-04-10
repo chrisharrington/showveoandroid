@@ -1,6 +1,7 @@
 package model.movies;
 
 import domain.Movie;
+import domain.UserMovie;
 import model.IBaseModel;
 import view.movies.IMoviesView;
 
@@ -34,4 +35,10 @@ public interface IMoviesModel extends IBaseModel<IMoviesView> {
 	 * @param movie The movie to watch.
 	 */
 	void loadMovieView(Movie movie);
+
+    /**
+     * Loads a detailed movie information view.
+     * @param movie The user-movie object.
+     */
+    void loadDetailedMovieInfoView(UserMovie movie);
 }

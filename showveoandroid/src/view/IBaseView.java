@@ -10,11 +10,18 @@ public interface IBaseView {
 	//------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
 
-	/**
+    /**
 	 * Switches to another activity.
 	 * @param type The type of activity.
 	 */
 	void loadActivity(ActivityType type);
+
+	/**
+	 * Switches to another activity.
+	 * @param type The type of activity.
+     * @param data Any argument to pass to the base view.
+	 */
+	void loadActivity(ActivityType type, Object data);
 
 	/**
 	 * Loads the OS-defined movie activity.

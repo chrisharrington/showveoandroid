@@ -1,7 +1,6 @@
 package view.movies;
 
 import domain.GenreCollection;
-import domain.Movie;
 import domain.UserMovie;
 import domain.UserMovieCollection;
 import service.event.IParameterizedEventHandler;
@@ -51,5 +50,5 @@ public interface IMoviesView extends IBaseView {
 	 * Fired after the user has selected a movie.
 	 * @param handler The event handler.
 	 */
-	void onMovieSelected(IParameterizedEventHandler<Movie> handler);
+	void onMovieSelected(IParameterizedEventHandler<UserMovie> handler);
 }

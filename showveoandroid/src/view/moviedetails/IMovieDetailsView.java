@@ -7,8 +7,4 @@ import view.IBaseView;
  */
 public interface IMovieDetailsView extends IBaseView {
 
-
-
-
-
 }

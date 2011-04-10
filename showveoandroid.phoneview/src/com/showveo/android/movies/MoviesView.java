@@ -1,7 +1,6 @@
 package com.showveo.android.movies;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,7 +31,7 @@ public class MoviesView extends BaseView implements IMoviesView {
 	private IParameterizedEventHandler<String> _onGenreChanged;
 
 	//	The movie selected handler.  Fired after the user has selected a movie.
-	private IParameterizedEventHandler<Movie> _onMovieSelected;
+	private IParameterizedEventHandler<UserMovie> _onMovieSelected;
 
 	//	The controller used to control this view.
 	private final IMoviesController _controller;
@@ -65,16 +64,14 @@ public class MoviesView extends BaseView implements IMoviesView {
 	//------------------------------------------------------------------------------------------------------------------
 	//	Overridden Methods
 
-	/**
-	 * Called when this ActivityType is first created.
-	 * @param savedInstanceState Any saved instance state information.
-	 */
+    /**
+     * Called during the onCreate method of the activity, before the onLoad handler is fired.
+     * @param arg Any arguments passed from the calling activity.
+     */
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-		_controller.registerView(this);
+    protected void run(Object arg) {
+        _controller.registerView(this);
 
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.movies);
 		setTitle("Movies");
     }
@@ -144,7 +141,7 @@ public class MoviesView extends BaseView implements IMoviesView {
 		list.setVisibility(isFirst ? View.VISIBLE : View.INVISIBLE);
 		list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-				_onMovieSelected.run(movies.get(i).getMovie());
+				_onMovieSelected.run(movies.get(i));
 			}
 		});
 		list.setAdapter(new MoviesArrayAdapter(this, R.layout.movielistview, movies, (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)));
@@ -191,7 +188,7 @@ public class MoviesView extends BaseView implements IMoviesView {
 		list.setId(2);
 		list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-				_onMovieSelected.run(movies.get(i).getMovie());
+				_onMovieSelected.run(movies.get(i));
 			}
 		});
 		list.setAdapter(new MoviesArrayAdapter(this, R.layout.movielistview, movies, (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE)));
@@ -236,7 +233,7 @@ public class MoviesView extends BaseView implements IMoviesView {
 	 * Fired after the user has selected a movie.
 	 * @param handler The event handler.
 	 */
-	public void onMovieSelected(IParameterizedEventHandler<Movie> handler) {
+	public void onMovieSelected(IParameterizedEventHandler<UserMovie> handler) {
 		if (handler == null)
 			throw new IllegalArgumentException("handler");
 

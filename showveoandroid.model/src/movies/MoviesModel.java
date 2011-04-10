@@ -114,7 +114,18 @@ public class MoviesModel extends BaseModel<IMoviesView> implements IMoviesModel 
 		_view.loadMovieActivity(_baseMovieLocation + movie.getUrl());
 	}
 
-	//------------------------------------------------------------------------------------------------------------------
+    /**
+     * Loads a detailed movie information view.
+     * @param movie The user-movie object.
+     */
+    public void loadDetailedMovieInfoView(UserMovie movie) {
+        if (movie == null)
+            throw new IllegalArgumentException("movie");
+
+        _view.loadActivity(ActivityType.MovieDetails, movie);
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
 	//	Event Handlers
 
 	/**

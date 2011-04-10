@@ -2,7 +2,6 @@ package com.showveo.android;
 
 import android.graphics.Color;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.widget.TextView;
 import base.Loader;
 import container.IDataStore;
@@ -16,17 +15,16 @@ public class SplashView extends BaseView {
 	//------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
 
-	/**
-	 * Fired when the activity is created.  Shows a splash screen.
-	 * @param savedInstanceState Saved data.
-	 */
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    /**
+     * Called during the onCreate method of the activity, before the onLoad handler is fired.
+     * @param arg Any arguments passed from the calling activity.
+     */
+    @Override
+    protected void run(Object arg) {
         setContentView(R.layout.splash);
 
-		new LoadApplicationTask().execute((IDataStore) getApplication());
-	}
+        new LoadApplicationTask().execute((IDataStore) getApplication());
+    }
 
 	/**
 	 * An asynchronous task used to load the application in the background.

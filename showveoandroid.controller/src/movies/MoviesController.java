@@ -1,7 +1,7 @@
 package movies;
 
 import controller.IMoviesController;
-import domain.Movie;
+import domain.UserMovie;
 import model.movies.IMoviesModel;
 import service.event.IEmptyEventHandler;
 import service.event.IParameterizedEventHandler;
@@ -68,9 +68,9 @@ public class MoviesController implements IMoviesController {
 			}
 		});
 
-		_view.onMovieSelected(new IParameterizedEventHandler<Movie>() {
-			public void run(Movie movie, Throwable... error) {
-				_model.loadMovieView(movie);
+		_view.onMovieSelected(new IParameterizedEventHandler<UserMovie>() {
+			public void run(UserMovie movie, Throwable... error) {
+				_model.loadDetailedMovieInfoView(movie);
 			}
 		});
 	}

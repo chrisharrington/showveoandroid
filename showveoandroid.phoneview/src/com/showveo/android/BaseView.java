@@ -7,10 +7,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 import com.showveo.android.main.MainView;
+import com.showveo.android.moviedetails.MovieDetailsView;
 import com.showveo.android.movies.MoviesView;
+import container.IDataStore;
 import service.event.IEmptyEventHandler;
 import view.ActivityType;
 import view.IBaseView;
+
+import java.util.UUID;
 
 /**
  * Provides basic view functionality.
@@ -26,6 +30,15 @@ public abstract class BaseView extends Activity implements IBaseView {
 	//	The load event handler.  Fired after the view loads.
 	private IEmptyEventHandler _onLoad;
 
+    //------------------------------------------------------------------------------------------------------------------
+	//	Abstract Methods
+
+    /**
+     * Called during the onCreate method of the activity, before the onLoad handler is fired.
+     * @param arg Any arguments passed from the calling activity.
+     */
+    protected abstract void run(Object arg);
+
 	//------------------------------------------------------------------------------------------------------------------
 	//	Public Methods
 
@@ -38,15 +51,36 @@ public abstract class BaseView extends Activity implements IBaseView {
     {
 		super.onCreate(savedInstanceState);
 
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String key = extras.getString("argument");
+            if (key != null && !key.equals("")) {
+                UUID uuid = UUID.fromString(key);
+                IDataStore store = (IDataStore) getApplication();
+                run(store.getData(uuid, Object.class));
+            }
+        }
+        else
+            run(null);
+
 		if(_onLoad != null)
 			_onLoad.run();
+    }
+
+    /**
+	 * Switches to another activity.
+	 * @param type The type of activity.
+	 */
+	public void loadActivity(ActivityType type) {
+        loadActivity(type, null);
     }
 
 	/**
 	 * Switches to another activity.
 	 * @param type The type of activity.
+     * @param data Data to pass to the new activity.
 	 */
-	public void loadActivity(ActivityType type) {
+	public void loadActivity(ActivityType type, Object data) {
 		Intent intent;
 		switch (type) {
 			case Main:
@@ -55,9 +89,15 @@ public abstract class BaseView extends Activity implements IBaseView {
 			case Movies:
 				intent = new Intent(this, MoviesView.class);
 				break;
+            case MovieDetails:
+                intent = new Intent(this, MovieDetailsView.class);
+                break;
 			default:
 				throw new IllegalArgumentException("activityType");
 		}
+
+        if (data != null)
+            intent.putExtra("argument", ((IDataStore) getApplication()).addData(data).toString());
 
 		startActivity(intent);
 	}

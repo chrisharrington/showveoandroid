@@ -1,9 +1,11 @@
 package com.showveo.android.moviedetails;
 
-import android.os.Bundle;
+import android.widget.TextView;
 import com.showveo.android.BaseView;
 import com.showveo.android.R;
+import container.DR;
 import controller.IMovieDetailsController;
+import domain.UserMovie;
 import view.moviedetails.IMovieDetailsView;
 
 /**
@@ -31,24 +33,34 @@ public class MovieDetailsView extends BaseView implements IMovieDetailsView {
 		_controller = controller;
 	}
 
-	//------------------------------------------------------------------------------------------------------------------
-	//	Public Methods
-
-	/**
-	 * Called when this ActivityType is first created.
-	 * @param savedInstanceState Any saved instance state information.
-	 */
-    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-		_controller.registerView(this);
-		super.onCreate(savedInstanceState);
-
-		setContentView(R.layout.moviedetails);
-		setTitle("Movies");
+    /**
+     * The empty constructor  Pulls all required components from the dependency resolver.
+     */
+    public MovieDetailsView() {
+        this(DR.get(IMovieDetailsController.class));
     }
 
 	//------------------------------------------------------------------------------------------------------------------
-	//	Event Handlers
+	//	Public Methods
+
+    /**
+     * Called during the onCreate method of the activity, before the onLoad handler is fired.
+     * @param arg Any arguments passed from the calling activity.
+     */
+    @Override
+    protected void run(Object arg) {
+        _controller.registerView(this);
+
+        setContentView(R.layout.moviedetails);
+		setTitle("Movies");
+
+        if (arg.getClass() != UserMovie.class)
+            return;
+
+        UserMovie movie = (UserMovie) arg;
+
+        TextView text = (TextView) findViewById(R.id.text);
+        text.setText(movie.getMovie().getName());
+    }
 
 }
