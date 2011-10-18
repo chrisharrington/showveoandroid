@@ -1,8 +1,0 @@
-package user;
-
-//
-//	A static class containing user related queries.
-//
-public static class UserQueries {
-
-}

@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="13" version="2.0">
+<workbench progressCount="31" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="0" y="24">
-<fastViewData fastViewLocation="1024"/>
+<fastViewData fastViewLocation="1024">
+<orientation position="512" view="org.eclipse.jdt.ui.PackageExplorer"/>
+</fastViewData>
 <perspectiveBar>
 <itemSize x="160"/>
 </perspectiveBar>
-<coolbarLayout locked="0">
+<coolbarLayout>
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="104" y="30"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="122" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
-<coolItem id="adt.actionSet.avdManager" itemType="typeToolBarContribution" x="40" y="30"/>
-<coolItem id="adt.actionSet.wizards" itemType="typeToolBarContribution" x="96" y="30"/>
-<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="120" y="30"/>
-<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="104" y="30"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="76" y="30"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="124" y="30"/>
+<coolItem id="adt.actionSet.avdManager" itemType="typeToolBarContribution" x="38" y="22"/>
+<coolItem id="adt.actionSet.wizards" itemType="typeToolBarContribution" x="84" y="22"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="129" y="22"/>
+<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="99" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="99" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="130" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="184" y="30"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
@@ -32,49 +34,28 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
-<part id="2"/>
-<part id="3"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DR.java" partName="DR.java" path="/home/chris/Code/showveoandroid/showveoandroid.container/src/DR.java" title="DR.java" tooltip="showveoandroid.container/src/DR.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/showveoandroid.container/src/DR.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="25" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="test.java" partName="test.java" path="/home/chris/Code/showveoandroid/test/src/test.java" title="test.java" tooltip="test/src/test.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/test/src/test.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="180" selectionTopPixel="0"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Loader.java" partName="Loader.java" path="/home/chris/Code/showveoandroid/showveoandroid.container/src/Loader.java" title="Loader.java" tooltip="showveoandroid.container/src/Loader.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/showveoandroid.container/src/Loader.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1109" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Service.java" partName="Service.java" path="/home/chris/Code/showveoandroid/showveoandroid.dataaccess/src/Service.java" title="Service.java" tooltip="showveoandroid.dataaccess/src/Service.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/showveoandroid.dataaccess/src/Service.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1194" selectionTopPixel="3"/>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GenreDeserializer.java" partName="GenreDeserializer.java" path="C:/Code/showveoandroid/showveoandroid.service/src/serialization/GenreDeserializer.java" title="GenreDeserializer.java" tooltip="showveoandroid.service/src/serialization/GenreDeserializer.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/showveoandroid.service/src/serialization/GenreDeserializer.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1059" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
-<view id="org.eclipse.jdt.ui.TypeHierarchy" partName="Hierarchy"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Errors (6 items)"/>
-<category IMemento.internal.id="Warnings"/>
 <category IMemento.internal.id="Errors"/>
 </expanded>
-<columnWidths org.eclipse.ui.ide.locationField="73" org.eclipse.ui.ide.markerType="857" org.eclipse.ui.ide.pathField="143" org.eclipse.ui.ide.resourceField="108" org.eclipse.ui.ide.severityAndDescriptionField="350"/>
+<columnWidths org.eclipse.ui.ide.locationField="73" org.eclipse.ui.ide.markerType="857" org.eclipse.ui.ide.pathField="143" org.eclipse.ui.ide.resourceField="272" org.eclipse.ui.ide.severityAndDescriptionField="665"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
 </viewState>
-</view>
-<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
-<viewState/>
 </view>
 <view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
 <viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="Aggregate for window 1298150172165">
@@ -93,17 +74,23 @@
 <child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyInnerPackageFilter" isEnabled="true"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.PackageDeclarationFilter" isEnabled="true"/>
 <child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyPackageFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer_patternFilterId_RemoteSystemsConnections" isEnabled="true"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.ImportDeclarationFilter" isEnabled="true"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.FieldsFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.HideInnerClassFilesFilter" isEnabled="true"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.NonPublicFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*" isEnabled="true"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.EmptyLibraryContainerFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer_patternFilterId_RemoteSystemsTempFiles" isEnabled="true"/>
 <child filterId="org.eclipse.pde.ui.BinaryProjectFilter1" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.SyntheticMembersFilter" isEnabled="true"/>
+<child filterId="org.eclipse.mylyn.java.ui.MembersFilter" isEnabled="false"/>
 </xmlDefinedFilters>
 </customFilters>
 </viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
 </view>
 <view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc">
@@ -121,9 +108,6 @@
 <alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
 <alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
 <alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
-<alwaysOnActionSet id="adt.actionSet.wizards"/>
-<alwaysOnActionSet id="adt.actionSet.refactorings"/>
-<alwaysOnActionSet id="adt.actionSet.avdManager"/>
 <alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.ui.JavaElementCreationActionSet"/>
@@ -131,6 +115,13 @@
 <alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.junit.JUnitActionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
+<alwaysOnActionSet id="org.eclipse.rse.core.search.searchActionSet"/>
+<alwaysOnActionSet id="adt.actionSet.wizards"/>
+<alwaysOnActionSet id="adt.actionSet.refactorings"/>
+<alwaysOnActionSet id="adt.actionSet.avdManager"/>
 <show_view_action id="org.eclipse.jdt.ui.PackageExplorer"/>
 <show_view_action id="org.eclipse.jdt.ui.TypeHierarchy"/>
 <show_view_action id="org.eclipse.jdt.ui.SourceView"/>
@@ -146,6 +137,7 @@
 <show_view_action id="org.eclipse.ui.texteditor.TemplatesView"/>
 <show_view_action id="org.eclipse.ant.ui.views.AntView"/>
 <show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<show_in_time id="org.eclipse.jdt.ui.PackageExplorer" time="1318906406534"/>
 <new_wizard_action id="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
 <new_wizard_action id="org.eclipse.jdt.ui.wizards.NewPackageCreationWizard"/>
 <new_wizard_action id="org.eclipse.jdt.ui.wizards.NewClassCreationWizard"/>
@@ -167,25 +159,23 @@
 <perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
 <perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
-<view id="org.eclipse.jdt.ui.PackageExplorer"/>
-<view id="org.eclipse.jdt.ui.TypeHierarchy"/>
 <view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.jdt.ui.JavadocView"/>
 <view id="org.eclipse.jdt.ui.SourceView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.jdt.ui.PackageExplorer"/>
 <fastViewBars/>
 <layout>
 <mainWindow>
 <info folder="true" part="left">
 <folder activePageID="org.eclipse.jdt.ui.PackageExplorer" appearance="2" expanded="2">
 <page content="org.eclipse.jdt.ui.PackageExplorer" label="Package Explorer"/>
-<page content="org.eclipse.jdt.ui.TypeHierarchy" label="Hierarchy"/>
+<page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.junit.ResultView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
 </presentation>
 </folder>
 </info>
@@ -199,7 +189,7 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.19486642" ratioLeft="372" ratioRight="1537" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.77959186" ratioLeft="764" ratioRight="216" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
@@ -215,7 +205,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="right" ratio="0.74934036" ratioLeft="568" ratioRight="190" relationship="2" relative="org.eclipse.ui.editorss">
+<info folder="true" part="right" ratio="0.7959583" ratioLeft="1221" ratioRight="313" relationship="2" relative="org.eclipse.ui.editorss">
 <folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.ui.texteditor.TemplatesView" label="LabelNotFound"/>
@@ -230,161 +220,167 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.container/src/Loader.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid/src/dataaccess/IService.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid/src/dataaccess/IQuery.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.controller/src/main/MainController.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.model/src/base/BaseModel.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.phoneview/src/com/showveo/android/BaseView.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.service/src/security/Cryptographer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.service/src/serialization/MovieDeserializer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.test/src/dataaccess/GetQueryTest.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.test/src/test.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.test/src/dataaccess/GetQueryTest.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.dataaccess/src/user/UserQueries.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.dataaccess/src/Service.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid/src/dataaccess/IQuery.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid/src/domain/GenreCollection.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.container/src/DR.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.container/src/Loader.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/test/src/test.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.dataaccess/src/Service.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.container/src/base/Loader.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.dataaccess/src/genre/GenreRepository.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.dataaccess/src/base/BaseAsyncTask.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.phoneview/src/com/showveo/android/BaseView.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.phoneview/src/com/showveo/android/SplashView.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.phoneview/src/com/showveo/android/TestView.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.phoneview/src/com/showveo/android/SplashView.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.phoneview/src/com/showveo/android/main/MainMenuItemArrayAdapter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.phoneview/src/com/showveo/android/main/MainView.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.phoneview/src/com/showveo/android/moviedetails/MovieDetailsView.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesArrayAdapter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesView.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.container/src/base/Loader.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.dataaccess/src/base/BaseAsyncTask.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.test/src/dataaccess/GetQueryTest.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/showveoandroid.service/src/serialization/GenreDeserializer.java"/>
 </editors>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="737" y="0"/>
-</item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="805" y="0"/>
-</item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="832" y="0"/>
-</item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="1049" y="0"/>
-</item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="1069" y="0"/>
-</item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="1107" y="0"/>
-</item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="1108" y="0"/>
-</item>
-<item historyLabel="DR.java" index="1">
-<position/>
-</item>
-<item historyLabel="DR.java" index="1">
-<position/>
-</item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="1064" y="0"/>
-</item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="750" y="0"/>
-</item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="727" y="0"/>
-</item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="363" y="0"/>
-</item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="1168" y="0"/>
-</item>
-<item historyLabel="Loader.java" index="0">
-<position/>
-</item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="1125" y="0"/>
-</item>
-<item historyLabel="Loader.java" index="2">
+<item historyLabel="IService.java" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="1125" y="0"/>
+<item historyLabel="IService.java" index="0">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Loader.java" index="2">
-<position info="not_deleted" x="981" y="0"/>
+<item historyLabel="IService.java" index="0">
+<position info="not_deleted" x="66" y="8"/>
 </item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="735" y="0"/>
+<item historyLabel="IQuery.java" index="1">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Loader.java" index="2">
-<position info="not_deleted" x="981" y="0"/>
+<item historyLabel="IQuery.java" index="1">
+<position info="not_deleted" x="1034" y="0"/>
 </item>
-<item historyLabel="Loader.java" index="2">
-<position info="not_deleted" x="981" y="0"/>
+<item historyLabel="MainController.java" index="2">
+<position info="not_deleted" x="861" y="0"/>
 </item>
-<item historyLabel="test.java" index="3">
-<position info="not_deleted" x="187" y="0"/>
+<item historyLabel="BaseModel.java" index="3">
+<position info="not_deleted" x="148" y="0"/>
 </item>
-<item historyLabel="Loader.java" index="2">
-<position info="not_deleted" x="981" y="0"/>
+<item historyLabel="BaseView.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="test.java" index="3">
-<position info="not_deleted" x="180" y="0"/>
+<item historyLabel="Cryptographer.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="735" y="0"/>
+<item historyLabel="MovieDeserializer.java" index="6">
+<position info="not_deleted" x="873" y="0"/>
 </item>
-<item historyLabel="Loader.java" index="2">
-<position info="not_deleted" x="28" y="0"/>
+<item historyLabel="GetQueryTest.java" index="7">
+<position info="not_deleted" x="241" y="0"/>
 </item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="735" y="0"/>
+<item historyLabel="test.java" index="8">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Loader.java" index="2">
-<position info="not_deleted" x="28" y="0"/>
+<item historyLabel="GetQueryTest.java" index="7">
+<position info="not_deleted" x="683" y="0"/>
 </item>
-<item historyLabel="test.java" index="3">
-<position info="not_deleted" x="180" y="0"/>
+<item historyLabel="GetQueryTest.java" index="9">
+<position info="not_deleted" x="199" y="0"/>
 </item>
-<item historyLabel="test.java" index="3">
-<position info="not_deleted" x="93" y="0"/>
-</item>
-<item historyLabel="Loader.java" index="2">
-<position info="not_deleted" x="28" y="0"/>
-</item>
-<item historyLabel="test.java" index="3">
-<position info="not_deleted" x="183" y="0"/>
-</item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="25" y="0"/>
-</item>
-<item historyLabel="test.java" index="3">
-<position info="not_deleted" x="183" y="0"/>
-</item>
-<item historyLabel="Loader.java" index="2">
-<position info="not_deleted" x="1109" y="0"/>
-</item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="25" y="0"/>
-</item>
-<item historyLabel="Loader.java" index="2">
-<position info="not_deleted" x="1109" y="0"/>
-</item>
-<item historyLabel="test.java" index="3">
-<position info="not_deleted" x="187" y="0"/>
-</item>
-<item historyLabel="Service.java" index="4">
-<position info="not_deleted" x="1194" y="0"/>
-</item>
-<item historyLabel="test.java" index="3">
-<position info="not_deleted" x="187" y="0"/>
-</item>
-<item historyLabel="test.java" index="3">
+<item historyLabel="UserQueries.java" index="10">
 <position/>
 </item>
-<item historyLabel="test.java" index="3">
-<position info="not_deleted" x="180" y="0"/>
+<item historyLabel="UserQueries.java" index="10">
+<position/>
 </item>
-<item historyLabel="Loader.java" index="2">
-<position info="not_deleted" x="1109" y="0"/>
+<item historyLabel="GetQueryTest.java" index="9">
+<position info="not_deleted" x="199" y="0"/>
 </item>
-<item historyLabel="test.java" index="3">
-<position info="not_deleted" x="180" y="0"/>
+<item historyLabel="Service.java" index="11">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="test.java" index="3">
-<position info="not_deleted" x="180" y="0"/>
+<item historyLabel="GetQueryTest.java" index="9">
+<position info="not_deleted" x="226" y="0"/>
 </item>
-<item historyLabel="DR.java" index="1">
-<position info="not_deleted" x="25" y="0"/>
+<item historyLabel="UserQueries.java" index="10">
+<position info="not_deleted" x="782" y="0"/>
 </item>
-<item historyLabel="Service.java" index="4">
-<position info="not_deleted" x="1194" y="0"/>
+<item historyLabel="IQuery.java" index="12">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Loader.java" index="2">
-<position info="not_deleted" x="1109" y="0"/>
+<item historyLabel="UserQueries.java" index="10">
+<position info="not_deleted" x="782" y="0"/>
 </item>
-<item active="true" historyLabel="Loader.java" index="2">
-<position info="not_deleted" x="1090" y="19"/>
+<item historyLabel="GenreCollection.java" index="13">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="DR.java" index="14">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Loader.java" index="15">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Loader.java" index="16">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="GenreRepository.java" index="17">
+<position info="not_deleted" x="1299" y="0"/>
+</item>
+<item historyLabel="BaseAsyncTask.java" index="18">
+<position info="not_deleted" x="1273" y="0"/>
+</item>
+<item historyLabel="BaseView.java" index="19">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="SplashView.java" index="20">
+<position info="not_deleted" x="746" y="0"/>
+</item>
+<item historyLabel="TestView.java" index="21">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="SplashView.java" index="22">
+<position info="not_deleted" x="872" y="0"/>
+</item>
+<item historyLabel="MainMenuItemArrayAdapter.java" index="23">
+<position info="not_deleted" x="234" y="0"/>
+</item>
+<item historyLabel="MainView.java" index="24">
+<position info="not_deleted" x="241" y="21"/>
+</item>
+<item historyLabel="MovieDetailsView.java" index="25">
+<position info="not_deleted" x="1040" y="0"/>
+</item>
+<item historyLabel="MainView.java" index="24">
+<position info="not_deleted" x="241" y="21"/>
+</item>
+<item historyLabel="MoviesArrayAdapter.java" index="26">
+<position info="not_deleted" x="259" y="0"/>
+</item>
+<item historyLabel="MoviesView.java" index="27">
+<position info="not_deleted" x="279" y="0"/>
+</item>
+<item historyLabel="Loader.java" index="28">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="BaseAsyncTask.java" index="29">
+<position info="not_deleted" x="846" y="0"/>
+</item>
+<item historyLabel="GetQueryTest.java" index="30">
+<position info="not_deleted" x="432" y="0"/>
+</item>
+<item historyLabel="BaseAsyncTask.java" index="29">
+<position info="not_deleted" x="846" y="0"/>
+</item>
+<item active="true" historyLabel="GenreDeserializer.java" index="31">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -393,6 +389,7 @@
 <actionBarAdvisor/>
 <trimLayout>
 <trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>
 <trimArea IMemento.internal.id="1024">
@@ -403,38 +400,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Service.java" tooltip="showveoandroid.dataaccess/src/Service.java">
-<persistable path="/showveoandroid.dataaccess/src/Service.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GenreDeserializer.java" tooltip="showveoandroid.service/src/serialization/GenreDeserializer.java">
+<persistable path="/showveoandroid.service/src/serialization/GenreDeserializer.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Loader.java" tooltip="showveoandroid.container/src/Loader.java">
-<persistable path="/showveoandroid.container/src/Loader.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GetQueryTest.java" tooltip="showveoandroid.test/src/dataaccess/GetQueryTest.java">
+<persistable path="/showveoandroid.test/src/dataaccess/GetQueryTest.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="test.java" tooltip="test/src/test.java">
-<persistable path="/test/src/test.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BaseAsyncTask.java" tooltip="showveoandroid.dataaccess/src/base/BaseAsyncTask.java">
+<persistable path="/showveoandroid.dataaccess/src/base/BaseAsyncTask.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DR.java" tooltip="showveoandroid.container/src/DR.java">
-<persistable path="/showveoandroid.container/src/DR.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Loader.java" tooltip="showveoandroid.container/src/base/Loader.java">
+<persistable path="/showveoandroid.container/src/base/Loader.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Register.java" tooltip="showveoandroid.container/src/Register.java">
-<persistable path="/showveoandroid.container/src/Register.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MoviesView.java" tooltip="showveoandroid.phoneview/src/com/showveo/android/movies/MoviesView.java">
+<persistable path="/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesView.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MoviesArrayAdapter.java" tooltip="showveoandroid.phoneview/src/com/showveo/android/movies/MoviesArrayAdapter.java">
+<persistable path="/showveoandroid.phoneview/src/com/showveo/android/movies/MoviesArrayAdapter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MovieDetailsView.java" tooltip="showveoandroid.phoneview/src/com/showveo/android/moviedetails/MovieDetailsView.java">
+<persistable path="/showveoandroid.phoneview/src/com/showveo/android/moviedetails/MovieDetailsView.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainView.java" tooltip="showveoandroid.phoneview/src/com/showveo/android/main/MainView.java">
+<persistable path="/showveoandroid.phoneview/src/com/showveo/android/main/MainView.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainMenuItemArrayAdapter.java" tooltip="showveoandroid.phoneview/src/com/showveo/android/main/MainMenuItemArrayAdapter.java">
+<persistable path="/showveoandroid.phoneview/src/com/showveo/android/main/MainMenuItemArrayAdapter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SplashView.java" tooltip="showveoandroid.phoneview/src/com/showveo/android/SplashView.java">
+<persistable path="/showveoandroid.phoneview/src/com/showveo/android/SplashView.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TestView.java" tooltip="showveoandroid.phoneview/src/com/showveo/android/TestView.java">
+<persistable path="/showveoandroid.phoneview/src/com/showveo/android/TestView.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BaseView.java" tooltip="showveoandroid.phoneview/src/com/showveo/android/BaseView.java">
+<persistable path="/showveoandroid.phoneview/src/com/showveo/android/BaseView.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GenreRepository.java" tooltip="showveoandroid.dataaccess/src/genre/GenreRepository.java">
+<persistable path="/showveoandroid.dataaccess/src/genre/GenreRepository.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GenreCollection.java" tooltip="showveoandroid/src/domain/GenreCollection.java">
+<persistable path="/showveoandroid/src/domain/GenreCollection.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IQuery.java" tooltip="showveoandroid/src/dataaccess/IQuery.java">
 <persistable path="/showveoandroid/src/dataaccess/IQuery.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UserQueries.java" tooltip="showveoandroid.dataaccess/src/user/UserQueries.java">
-<persistable path="/showveoandroid.dataaccess/src/user/UserQueries.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UserRepository.java" tooltip="showveoandroid.dataaccess/src/UserRepository.java">
-<persistable path="/showveoandroid.dataaccess/src/UserRepository.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="User.java" tooltip="showveoandroid/src/showveoandroid/domain/User.java">
-<persistable path="/showveoandroid/src/showveoandroid/domain/User.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IUserRepository.java" tooltip="showveoandroid/src/showveoandroid/dataaccess/IUserRepository.java">
-<persistable path="/showveoandroid/src/showveoandroid/dataaccess/IUserRepository.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IService.java" tooltip="showveoandroid/src/showveoandroid/dataaccess/IService.java">
-<persistable path="/showveoandroid/src/showveoandroid/dataaccess/IService.java"/>
 </file>
 </mruList>
 </workbench>

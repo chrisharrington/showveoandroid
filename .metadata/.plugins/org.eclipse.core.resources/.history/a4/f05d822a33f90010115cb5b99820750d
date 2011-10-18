@@ -1,0 +1,29 @@
+package com.showveo.android;
+
+import android.app.TabActivity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+
+public class TestView extends TabActivity {
+
+	/**
+	 * Called when this ActivityType is first created.
+	 * @param savedInstanceState Any saved instance state information.
+	 */
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+		setContentView(R.layout.test);
+
+		//String url = "http://www.longtailvideo.com/jw/upload/bunny.mp4";
+		String url = "http://68.147.201.165:3000/test.mp4";
+
+		Intent tostart = new Intent(Intent.ACTION_VIEW);
+		tostart.setDataAndType(Uri.parse(url), "video/mp4");
+		startActivity(tostart);
+    }
+}
+
+

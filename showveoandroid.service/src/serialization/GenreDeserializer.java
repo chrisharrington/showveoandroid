@@ -23,7 +23,7 @@ public class GenreDeserializer implements JsonDeserializer<Genre> {
 	 */
 	public Genre deserialize(JsonElement element, Type type, JsonDeserializationContext context) throws JsonParseException {
 		JsonObject object = element.getAsJsonObject();
-
+		
 		Genre genre = new Genre();
 
 		element = object.get("id");

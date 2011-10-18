@@ -17,6 +17,6 @@ public class GenreQueries {
 	 * @return The query describing the retrieval of all genres.
 	 */
 	public static IQuery<Genre> getAll() {
-		return new GetQuery<Genre>("movies/genres", Genre.class);
+		return new GetQuery<Genre>("genres/all", Genre.class);
 	}
 }

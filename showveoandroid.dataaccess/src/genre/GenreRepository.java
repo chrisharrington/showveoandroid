@@ -15,7 +15,7 @@ public class GenreRepository implements IGenreRepository {
 	//	Data Members
 
 	//	The remote container for information.
-	IService _service;
+	private IService _service;
 
 	//------------------------------------------------------------------------------------------------------------------
 	//	Constructors

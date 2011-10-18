@@ -1,5 +1,7 @@
 package com.showveo.android;
 
+import com.showveo.android.R;
+
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.widget.TextView;

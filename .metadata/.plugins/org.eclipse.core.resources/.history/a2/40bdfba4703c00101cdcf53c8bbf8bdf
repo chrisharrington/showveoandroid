@@ -1,5 +1,0 @@
-package showveoandroid.dataaccess;
-
-public interface IUserRepository {
-
-}

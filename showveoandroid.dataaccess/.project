@@ -3,7 +3,6 @@
 	<name>showveoandroid.dataaccess</name>
 	<comment></comment>
 	<projects>
-		<project>showveoandroid</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

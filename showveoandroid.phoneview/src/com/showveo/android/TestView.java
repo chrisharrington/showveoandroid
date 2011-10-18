@@ -1,5 +1,7 @@
 package com.showveo.android;
 
+import com.showveo.android.R;
+
 import android.app.TabActivity;
 import android.content.Intent;
 import android.net.Uri;

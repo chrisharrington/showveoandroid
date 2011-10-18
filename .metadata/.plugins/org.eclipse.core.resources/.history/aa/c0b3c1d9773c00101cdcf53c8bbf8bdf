@@ -1,6 +1,0 @@
-/*
- * A class used to load the dependencies for the application.
- */
-public class Loader {
-	
-}

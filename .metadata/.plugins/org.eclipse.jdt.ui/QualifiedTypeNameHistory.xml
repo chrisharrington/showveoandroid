@@ -3,4 +3,6 @@
 <fullyQualifiedTypeName name="showveoandroid.dataaccess.IUserRepository"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="dataaccess.user.IUserRepository"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="com.showveo.R"/>
 </qualifiedTypeNameHistroy>

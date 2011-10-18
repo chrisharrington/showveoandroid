@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Showveo</string>
+	<string name="moviesmenu_recent">Recent</string>
+	<string name="moviesmenu_favorites">Favorites</string>
+	<string name="moviesmenu_genres">Genres</string>
+	<string name="moviesmenu_all">All</string>
+</resources>

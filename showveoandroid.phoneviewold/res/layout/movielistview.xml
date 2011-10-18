@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent"
+        android:paddingLeft="10sp"
+		android:paddingRight="10sp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+		android:paddingTop="5sp"
+		android:paddingBottom="5sp">
+        <TextView android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+				android:id="@+id/tvName"
+				android:typeface="sans"
+				android:textSize="20sp"
+				android:textStyle="bold"
+				android:textColor="#FFF"
+				android:ellipsize="marquee"/>
+		<TextView android:id="@+id/tvIsEncoding"
+				  android:layout_height="wrap_content"
+				  android:layout_width="fill_parent"
+				  android:text="Encoding in progress"
+				  android:textSize="14sp"
+				  android:textStyle="bold"
+				  android:textColor="#F00"
+				  android:visibility="gone" />
+        <LinearLayout android:layout_height="wrap_content"
+                android:layout_width="fill_parent">
+                <TextView android:id="@+id/tvActors"
+						android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+						android:textSize="12sp"
+						android:textColor="#FFF" />
+        </LinearLayout>
+         <LinearLayout android:layout_height="wrap_content"
+                android:layout_width="fill_parent">
+                <TextView android:id="@+id/tvDescription"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:textSize="12sp"
+						android:ellipsize="end" />
+        </LinearLayout>
+</LinearLayout>

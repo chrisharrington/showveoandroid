@@ -40,7 +40,7 @@ public class Loader {
 	//	Data Members
 
     //  The location of the remote service.
-	private final static String _remoteLocation = "http://68.147.201.165:3000/";
+	private final static String _remoteLocation = "http://localhost:17395/";
 
 	//	A flag indicating whether or not the applicatoin is loaded.
 	private static boolean _isLoaded = false;
