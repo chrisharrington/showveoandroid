@@ -18,7 +18,7 @@ public class UserQueries {
 	//	password:				The user's password.
 	//
 	public static IQuery<User> getByEmailAddressAndPassword(String emailAddress, String password) {
-		IQuery<User> query = new GetQuery<User>("account/signin", User.class);
+		IQuery<User> query = new GetQuery<User>("user/authenticate", User.class);
 		query.addData("emailAddress", emailAddress);
 		query.addData("password", password);
 		return query;

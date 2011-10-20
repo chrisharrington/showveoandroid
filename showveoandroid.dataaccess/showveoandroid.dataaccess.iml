@@ -8,11 +8,7 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="jdk" jdkName="Android 2.2 Platform" jdkType="Android SDK" />
-    <orderEntry type="module" module-name="showveoandroid" exported="" />
-    <orderEntry type="module" module-name="showveoandroid.dataaccess" exported="" />
-    <orderEntry type="module" module-name="showveoandroid.service" />
-    <orderEntry type="module" module-name="showveoandroid.model" />
-    <orderEntry type="module" module-name="showveoandroid.controller" />
+    <orderEntry type="module" module-name="showveoandroid" />
   </component>
 </module>
 

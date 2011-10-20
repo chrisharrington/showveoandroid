@@ -79,8 +79,6 @@ public class GetQuery<T> implements IQuery<T> {
 	public GetQuery(String query, Class<T> returnType) {
 		if (query == null || query.equals(""))
 			throw new IllegalArgumentException("query");
-		if (!query.contains(".data"))
-			query += ".data";
 		if (returnType == null)
 			throw new IllegalArgumentException("returnType");
 

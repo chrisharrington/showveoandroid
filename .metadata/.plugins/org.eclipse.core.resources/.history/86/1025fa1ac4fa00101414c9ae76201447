@@ -1,0 +1,14 @@
+package dataaccess;
+
+import junit.framework.Assert;
+import base.GetQuery;
+import domain.User;
+
+public class Blah {
+
+	@Test
+	public void blah() {
+		
+	}
+	
+}
